@@ -49,26 +49,29 @@ import static com.alibaba.nacos.client.utils.LogUtils.NAMING_LOGGER;
  * @author xiweng.yy
  */
 public class ServiceInfoHolder implements Closeable {
-    
+
     private final ConcurrentMap<String, ServiceInfo> serviceInfoMap;
-    
+
     private final FailoverReactor failoverReactor;
-    
+
     private final boolean pushEmptyProtection;
-    
+
     private String cacheDir;
-    
+
     public ServiceInfoHolder(String namespace, Properties properties) {
+        //初始化缓存目录
         initCacheDir(namespace);
+        //默认false
         if (isLoadCacheAtStart(properties)) {
             this.serviceInfoMap = new ConcurrentHashMap<String, ServiceInfo>(DiskCache.read(this.cacheDir));
         } else {
             this.serviceInfoMap = new ConcurrentHashMap<String, ServiceInfo>(16);
         }
+        //故障转移 保存到disk 定时任务建本地缓存文件夹,定时写磁盘
         this.failoverReactor = new FailoverReactor(this, cacheDir);
         this.pushEmptyProtection = isPushEmptyProtect(properties);
     }
-    
+
     private void initCacheDir(String namespace) {
         String jmSnapshotPath = System.getProperty("JM.SNAPSHOT.PATH");
         if (!StringUtils.isBlank(jmSnapshotPath)) {
@@ -79,7 +82,7 @@ public class ServiceInfoHolder implements Closeable {
                     + File.separator + namespace;
         }
     }
-    
+
     private boolean isLoadCacheAtStart(Properties properties) {
         boolean loadCacheAtStart = false;
         if (properties != null && StringUtils
@@ -89,7 +92,7 @@ public class ServiceInfoHolder implements Closeable {
         }
         return loadCacheAtStart;
     }
-    
+
     private boolean isPushEmptyProtect(Properties properties) {
         boolean pushEmptyProtection = false;
         if (properties != null && StringUtils
@@ -99,11 +102,11 @@ public class ServiceInfoHolder implements Closeable {
         }
         return pushEmptyProtection;
     }
-    
+
     public Map<String, ServiceInfo> getServiceInfoMap() {
         return serviceInfoMap;
     }
-    
+
     public ServiceInfo getServiceInfo(final String serviceName, final String groupName, final String clusters) {
         NAMING_LOGGER.debug("failover-mode: " + failoverReactor.isFailoverSwitch());
         String groupedServiceName = NamingUtils.getGroupedName(serviceName, groupName);
@@ -113,7 +116,7 @@ public class ServiceInfoHolder implements Closeable {
         }
         return serviceInfoMap.get(key);
     }
-    
+
     /**
      * Process service json.
      *
@@ -125,7 +128,7 @@ public class ServiceInfoHolder implements Closeable {
         serviceInfo.setJsonFromServer(json);
         return processServiceInfo(serviceInfo);
     }
-    
+
     /**
      * Process service info.
      *
@@ -153,11 +156,11 @@ public class ServiceInfoHolder implements Closeable {
         }
         return serviceInfo;
     }
-    
+
     private boolean isEmptyOrErrorPush(ServiceInfo serviceInfo) {
         return null == serviceInfo.getHosts() || (pushEmptyProtection && !serviceInfo.validate());
     }
-    
+
     private boolean isChangedServiceInfo(ServiceInfo oldService, ServiceInfo newService) {
         if (null == oldService) {
             NAMING_LOGGER.info("init new ips(" + newService.ipCount() + ") service: " + newService.getKey() + " -> "
@@ -178,11 +181,11 @@ public class ServiceInfoHolder implements Closeable {
         for (Instance host : newService.getHosts()) {
             newHostMap.put(host.toInetAddr(), host);
         }
-        
+
         Set<Instance> modHosts = new HashSet<Instance>();
         Set<Instance> newHosts = new HashSet<Instance>();
         Set<Instance> remvHosts = new HashSet<Instance>();
-        
+
         List<Map.Entry<String, Instance>> newServiceHosts = new ArrayList<Map.Entry<String, Instance>>(
                 newHostMap.entrySet());
         for (Map.Entry<String, Instance> entry : newServiceHosts) {
@@ -192,38 +195,38 @@ public class ServiceInfoHolder implements Closeable {
                 modHosts.add(host);
                 continue;
             }
-            
+
             if (!oldHostMap.containsKey(key)) {
                 newHosts.add(host);
             }
         }
-        
+
         for (Map.Entry<String, Instance> entry : oldHostMap.entrySet()) {
             Instance host = entry.getValue();
             String key = entry.getKey();
             if (newHostMap.containsKey(key)) {
                 continue;
             }
-            
+
             if (!newHostMap.containsKey(key)) {
                 remvHosts.add(host);
             }
-            
+
         }
-        
+
         if (newHosts.size() > 0) {
             changed = true;
             NAMING_LOGGER
                     .info("new ips(" + newHosts.size() + ") service: " + newService.getKey() + " -> " + JacksonUtils
                             .toJson(newHosts));
         }
-        
+
         if (remvHosts.size() > 0) {
             changed = true;
             NAMING_LOGGER.info("removed ips(" + remvHosts.size() + ") service: " + newService.getKey() + " -> "
                     + JacksonUtils.toJson(remvHosts));
         }
-        
+
         if (modHosts.size() > 0) {
             changed = true;
             NAMING_LOGGER.info("modified ips(" + modHosts.size() + ") service: " + newService.getKey() + " -> "
@@ -231,7 +234,7 @@ public class ServiceInfoHolder implements Closeable {
         }
         return changed;
     }
-    
+
     @Override
     public void shutdown() throws NacosException {
         String className = this.getClass().getName();

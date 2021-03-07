@@ -114,6 +114,7 @@ fi
 
 JAVA_OPT="${JAVA_OPT} -Dloader.path=${BASE_DIR}/plugins/health,${BASE_DIR}/plugins/cmdb"
 JAVA_OPT="${JAVA_OPT} -Dnacos.home=${BASE_DIR}"
+#这里看到实际执行的是打包的nacos-server.jar 包,屁股想打包名字肯定在pom.xml或是.sh 文件里,直接全局搜
 JAVA_OPT="${JAVA_OPT} -jar ${BASE_DIR}/target/${SERVER}.jar"
 JAVA_OPT="${JAVA_OPT} ${JAVA_OPT_EXT}"
 JAVA_OPT="${JAVA_OPT} --spring.config.additional-location=${CUSTOM_SEARCH_LOCATIONS}"

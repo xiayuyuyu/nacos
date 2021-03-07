@@ -53,33 +53,35 @@ import static com.alibaba.nacos.client.utils.LogUtils.NAMING_LOGGER;
  * @author xiweng.yy
  */
 public class ServerListManager implements ServerListFactory, Closeable {
-    
+
     private final NacosRestTemplate nacosRestTemplate = NamingHttpClientManager.getInstance().getNacosRestTemplate();
-    
+
     private final long refreshServerListInternal = TimeUnit.SECONDS.toMillis(30);
-    
+
     private final AtomicInteger currentIndex = new AtomicInteger();
-    
+
     private List<String> serversFromEndpoint = new ArrayList<String>();
-    
+
     private List<String> serverList = new ArrayList<String>();
-    
+
     private ScheduledExecutorService refreshServerListExecutor;
-    
+
     private String endpoint;
-    
+
     private String nacosDomain;
-    
+
     private long lastServerListRefreshTime = 0L;
-    
+
     public ServerListManager(Properties properties) {
+        //初始化nacos-server 的地址,
         initServerAddr(properties);
         if (!serverList.isEmpty()) {
             currentIndex.set(new Random().nextInt(serverList.size()));
         }
     }
-    
+
     private void initServerAddr(Properties properties) {
+        //""字符串
         this.endpoint = InitUtils.initEndpoint(properties);
         if (StringUtils.isNotEmpty(endpoint)) {
             this.serversFromEndpoint = getServerListFromEndpoint();
@@ -101,7 +103,7 @@ public class ServerListManager implements ServerListFactory, Closeable {
             }
         }
     }
-    
+
     private List<String> getServerListFromEndpoint() {
         try {
             String urlString = "http://" + endpoint + "/nacos/serverlist";
@@ -124,7 +126,7 @@ public class ServerListManager implements ServerListFactory, Closeable {
         }
         return null;
     }
-    
+
     private void refreshServerListIfNeed() {
         try {
             if (!CollectionUtils.isEmpty(serverList)) {
@@ -147,30 +149,30 @@ public class ServerListManager implements ServerListFactory, Closeable {
             NAMING_LOGGER.warn("failed to update server list", e);
         }
     }
-    
+
     public boolean isDomain() {
         return StringUtils.isNotBlank(nacosDomain);
     }
-    
+
     public String getNacosDomain() {
         return nacosDomain;
     }
-    
+
     public List<String> getServerList() {
         return serverList.isEmpty() ? serversFromEndpoint : serverList;
     }
-    
+
     @Override
     public String genNextServer() {
         int index = currentIndex.incrementAndGet() % getServerList().size();
         return getServerList().get(index);
     }
-    
+
     @Override
     public String getCurrentServer() {
         return getServerList().get(currentIndex.get() % getServerList().size());
     }
-    
+
     @Override
     public void shutdown() throws NacosException {
         String className = this.getClass().getName();
