@@ -77,16 +77,18 @@ public class NacosNamingService implements NamingService {
 
     private void init(Properties properties) throws NacosException {
         ValidatorUtils.checkInitParam(properties);
-        //namespace:quickStart
+        //1. 初始化namespace 命名空间
         this.namespace = InitUtils.initNamespaceForNaming(properties);
         InitUtils.initSerialization();
-        //web上下文 初始化三个上下文
+        //2. web上下文 初始化三个上下文 即注册中心地址
         InitUtils.initWebRootContext(properties);
-        //初始化日志组件名
+        //3. 初始化日志组件名
         initLogName(properties);
-        //通知器
+        //4. 通知器
         this.changeNotifier = new InstancesChangeNotifier();
+        //注册publisher到NotifyCenter (实际及时将全类名和 publisher实例存入map中)
         NotifyCenter.registerToPublisher(InstancesChangeEvent.class, 16384);
+        //给publisher绑定事件处理器
         NotifyCenter.registerSubscriber(changeNotifier);
         //实例化ServiceInfoHolder
         this.serviceInfoHolder = new ServiceInfoHolder(namespace, properties);

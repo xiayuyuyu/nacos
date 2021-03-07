@@ -44,49 +44,50 @@ import static com.alibaba.nacos.api.exception.NacosException.SERVER_ERROR;
  * @author zongtanghu
  */
 public class NotifyCenter {
-    
+
     private static final Logger LOGGER = LoggerFactory.getLogger(NotifyCenter.class);
-    
+
     public static int ringBufferSize = 16384;
-    
+
     public static int shareBufferSize = 1024;
-    
+
     private static final AtomicBoolean CLOSED = new AtomicBoolean(false);
-    
+
     private static BiFunction<Class<? extends Event>, Integer, EventPublisher> publisherFactory = null;
-    
+
     private static final NotifyCenter INSTANCE = new NotifyCenter();
-    
+
     private DefaultSharePublisher sharePublisher;
-    
+
     private static Class<? extends EventPublisher> clazz = null;
-    
+
     /**
      * Publisher management container.
      */
     private final Map<String, EventPublisher> publisherMap = new ConcurrentHashMap<String, EventPublisher>(16);
-    
+
     static {
         // Internal ArrayBlockingQueue buffer size. For applications with high write throughput,
         // this value needs to be increased appropriately. default value is 16384
         String ringBufferSizeProperty = "nacos.core.notify.ring-buffer-size";
         ringBufferSize = Integer.getInteger(ringBufferSizeProperty, 16384);
-        
+
         // The size of the public publisher's message staging queue buffer
         String shareBufferSizeProperty = "nacos.core.notify.share-buffer-size";
         shareBufferSize = Integer.getInteger(shareBufferSizeProperty, 1024);
-        
+
         final Collection<EventPublisher> publishers = NacosServiceLoader.load(EventPublisher.class);
         Iterator<EventPublisher> iterator = publishers.iterator();
-        
+
         if (iterator.hasNext()) {
             clazz = iterator.next().getClass();
         } else {
+            //无配置  使用默认的EventPublisher
             clazz = DefaultPublisher.class;
         }
-        
+
         publisherFactory = new BiFunction<Class<? extends Event>, Integer, EventPublisher>() {
-            
+
             @Override
             public EventPublisher apply(Class<? extends Event> cls, Integer buffer) {
                 try {
@@ -99,17 +100,17 @@ public class NotifyCenter {
                 }
             }
         };
-        
+
         try {
-            
+
             // Create and init DefaultSharePublisher instance.
             INSTANCE.sharePublisher = new DefaultSharePublisher();
             INSTANCE.sharePublisher.init(SlowEvent.class, shareBufferSize);
-            
+
         } catch (Throwable ex) {
             LOGGER.error("Service class newInstance has error : {}", ex);
         }
-        
+
         ThreadUtils.addShutdownHook(new Runnable() {
             @Override
             public void run() {
@@ -117,12 +118,12 @@ public class NotifyCenter {
             }
         });
     }
-    
+
     @JustForTest
     public static Map<String, EventPublisher> getPublisherMap() {
         return INSTANCE.publisherMap;
     }
-    
+
     @JustForTest
     public static EventPublisher getPublisher(Class<? extends Event> topic) {
         if (ClassUtils.isAssignableFrom(SlowEvent.class, topic)) {
@@ -130,12 +131,12 @@ public class NotifyCenter {
         }
         return INSTANCE.publisherMap.get(topic.getCanonicalName());
     }
-    
+
     @JustForTest
     public static EventPublisher getSharePublisher() {
         return INSTANCE.sharePublisher;
     }
-    
+
     /**
      * Shutdown the several publisher instance which notify center has.
      */
@@ -144,7 +145,7 @@ public class NotifyCenter {
             return;
         }
         LOGGER.warn("[NotifyCenter] Start destroying Publisher");
-        
+
         for (Map.Entry<String, EventPublisher> entry : INSTANCE.publisherMap.entrySet()) {
             try {
                 EventPublisher eventPublisher = entry.getValue();
@@ -153,16 +154,16 @@ public class NotifyCenter {
                 LOGGER.error("[EventPublisher] shutdown has error : {}", e);
             }
         }
-        
+
         try {
             INSTANCE.sharePublisher.shutdown();
         } catch (Throwable e) {
             LOGGER.error("[SharePublisher] shutdown has error : {}", e);
         }
-        
+
         LOGGER.warn("[NotifyCenter] Destruction of the end");
     }
-    
+
     /**
      * Register a Subscriber. If the Publisher concerned by the Subscriber does not exist, then PublihserMap will
      * preempt a placeholder Publisher first.
@@ -185,16 +186,16 @@ public class NotifyCenter {
             }
             return;
         }
-        
+        //首次进入时,subscribeType = InstancesChangeEvent.class 拿到实例改变时间
         final Class<? extends Event> subscribeType = consumer.subscribeType();
         if (ClassUtils.isAssignableFrom(SlowEvent.class, subscribeType)) {
             INSTANCE.sharePublisher.addSubscriber(consumer, subscribeType);
             return;
         }
-        
+
         addSubscriber(consumer, subscribeType);
     }
-    
+
     /**
      * Add a subscriber to publisher.
      *
@@ -202,16 +203,17 @@ public class NotifyCenter {
      * @param subscribeType subscribeType.
      */
     private static void addSubscriber(final Subscriber consumer, Class<? extends Event> subscribeType) {
-        
+        //consumer = InstancesChangeNotifier ,subscribType = InstancesChangeEvent
         final String topic = ClassUtils.getCanonicalName(subscribeType);
         synchronized (NotifyCenter.class) {
             // MapUtils.computeIfAbsent is a unsafe method.
             MapUtil.computeIfAbsent(INSTANCE.publisherMap, topic, publisherFactory, subscribeType, ringBufferSize);
         }
         EventPublisher publisher = INSTANCE.publisherMap.get(topic);
+        //实际绑定
         publisher.addSubscriber(consumer);
     }
-    
+
     /**
      * Deregister subscriber.
      *
@@ -228,19 +230,19 @@ public class NotifyCenter {
             }
             return;
         }
-        
+
         final Class<? extends Event> subscribeType = consumer.subscribeType();
         if (ClassUtils.isAssignableFrom(SlowEvent.class, subscribeType)) {
             INSTANCE.sharePublisher.removeSubscriber(consumer, subscribeType);
             return;
         }
-        
+
         if (removeSubscriber(consumer, subscribeType)) {
             return;
         }
         throw new NoSuchElementException("The subscriber has no event publisher");
     }
-    
+
     /**
      * Remove subscriber.
      *
@@ -249,7 +251,7 @@ public class NotifyCenter {
      * @return whether remove subscriber successfully or not.
      */
     private static boolean removeSubscriber(final Subscriber consumer, Class<? extends Event> subscribeType) {
-        
+
         final String topic = ClassUtils.getCanonicalName(subscribeType);
         EventPublisher eventPublisher = INSTANCE.publisherMap.get(topic);
         if (eventPublisher != null) {
@@ -258,7 +260,7 @@ public class NotifyCenter {
         }
         return false;
     }
-    
+
     /**
      * Request publisher publish event Publishers load lazily, calling publisher. Start () only when the event is
      * actually published.
@@ -273,7 +275,7 @@ public class NotifyCenter {
             return false;
         }
     }
-    
+
     /**
      * Request publisher publish event Publishers load lazily, calling publisher.
      *
@@ -284,9 +286,9 @@ public class NotifyCenter {
         if (ClassUtils.isAssignableFrom(SlowEvent.class, eventType)) {
             return INSTANCE.sharePublisher.publish(event);
         }
-        
+
         final String topic = ClassUtils.getCanonicalName(eventType);
-        
+
         EventPublisher publisher = INSTANCE.publisherMap.get(topic);
         if (publisher != null) {
             return publisher.publish(event);
@@ -294,7 +296,7 @@ public class NotifyCenter {
         LOGGER.warn("There are no [{}] publishers for this event, please register", topic);
         return false;
     }
-    
+
     /**
      * Register to share-publisher.
      *
@@ -304,7 +306,7 @@ public class NotifyCenter {
     public static EventPublisher registerToSharePublisher(final Class<? extends SlowEvent> eventType) {
         return INSTANCE.sharePublisher;
     }
-    
+
     /**
      * Register publisher.
      *
@@ -312,18 +314,24 @@ public class NotifyCenter {
      * @param queueMaxSize the publisher's queue max size.
      */
     public static EventPublisher registerToPublisher(final Class<? extends Event> eventType, final int queueMaxSize) {
+
         if (ClassUtils.isAssignableFrom(SlowEvent.class, eventType)) {
             return INSTANCE.sharePublisher;
         }
-        
+        //服务启动初始化的时候 com.alibaba.nacos.client.naming.event.InstancesChangeEvent
         final String topic = ClassUtils.getCanonicalName(eventType);
         synchronized (NotifyCenter.class) {
             // MapUtils.computeIfAbsent is a unsafe method.
+            //见98行
+            //EventPublisher publisher = clazz.newInstance();
+            //                    publisher.init(InstancesChangeEvent.class, buffer);
+            //                    return publisher;
+            //相当于publisherMap.put(topic,publisher),往map里放了一个 InstancesChangeEvent事件
             MapUtil.computeIfAbsent(INSTANCE.publisherMap, topic, publisherFactory, eventType, queueMaxSize);
         }
         return INSTANCE.publisherMap.get(topic);
     }
-    
+
     /**
      * Deregister publisher.
      *
@@ -338,5 +346,5 @@ public class NotifyCenter {
             LOGGER.error("There was an exception when publisher shutdown : {}", ex);
         }
     }
-    
+
 }
