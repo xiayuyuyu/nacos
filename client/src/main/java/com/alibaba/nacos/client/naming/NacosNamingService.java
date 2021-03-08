@@ -99,7 +99,7 @@ public class NacosNamingService implements NamingService {
         logName = System.getProperty(UtilAndComs.NACOS_NAMING_LOG_NAME);
         if (StringUtils.isEmpty(logName)) {
             if (properties != null && StringUtils
-                .isNotEmpty(properties.getProperty(UtilAndComs.NACOS_NAMING_LOG_NAME))) {
+                    .isNotEmpty(properties.getProperty(UtilAndComs.NACOS_NAMING_LOG_NAME))) {
                 logName = properties.getProperty(UtilAndComs.NACOS_NAMING_LOG_NAME);
             } else {
                 logName = "naming.log";
@@ -361,7 +361,7 @@ public class NacosNamingService implements NamingService {
             return Balancer.RandomByWeight.selectHost(serviceInfo);
         } else {
             ServiceInfo serviceInfo = clientProxy
-                .queryInstancesOfService(serviceName, groupName, clusterString, 0, false);
+                    .queryInstancesOfService(serviceName, groupName, clusterString, 0, false);
             return Balancer.RandomByWeight.selectHost(serviceInfo);
         }
     }

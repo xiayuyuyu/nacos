@@ -60,17 +60,17 @@ import static com.alibaba.nacos.client.utils.LogUtils.NAMING_LOGGER;
  * @author xiweng.yy
  */
 public class NamingGrpcClientProxy extends AbstractNamingClientProxy {
-    
+
     private final String namespaceId;
-    
+
     private final String uuid;
-    
+
     private final Long requestTimeout;
-    
+
     private final RpcClient rpcClient;
-    
+
     private final NamingGrpcConnectionEventListener namingGrpcConnectionEventListener;
-    
+
     public NamingGrpcClientProxy(String namespaceId, SecurityProxy securityProxy, ServerListFactory serverListFactory,
             Properties properties, ServiceInfoHolder serviceInfoHolder) throws NacosException {
         super(securityProxy, properties);
@@ -84,24 +84,30 @@ public class NamingGrpcClientProxy extends AbstractNamingClientProxy {
         this.namingGrpcConnectionEventListener = new NamingGrpcConnectionEventListener(this);
         start(serverListFactory, serviceInfoHolder);
     }
-    
+
     private void start(ServerListFactory serverListFactory, ServiceInfoHolder serviceInfoHolder) throws NacosException {
         rpcClient.serverListFactory(serverListFactory);
+        //todo
         rpcClient.start();
         rpcClient.registerServerRequestHandler(new NamingPushRequestHandler(serviceInfoHolder));
         rpcClient.registerConnectionListener(namingGrpcConnectionEventListener);
     }
-    
+
     @Override
     public void registerService(String serviceName, String groupName, Instance instance) throws NacosException {
         NAMING_LOGGER.info("[REGISTER-SERVICE] {} registering service {} with instance {}", namespaceId, serviceName,
                 instance);
+        //初始化注册请求
         InstanceRequest request = new InstanceRequest(namespaceId, serviceName, groupName,
                 NamingRemoteConstants.REGISTER_INSTANCE, instance);
+        //发送注册请求
         requestToServer(request, Response.class);
+        //缓存注册实例的信息 一个groupName@@serviceName 对应一组set set里为instance 实例
+        //好比groupName为空 serviceName 为quickStart 则ConcurrentMap<String, Set<Instance>> registeredInstanceCached
+        //registeredInstanceCached 里有个key为@@quickStart value 为instance Set的东西
         namingGrpcConnectionEventListener.cacheInstanceForRedo(serviceName, groupName, instance);
     }
-    
+
     @Override
     public void deregisterService(String serviceName, String groupName, Instance instance) throws NacosException {
         NAMING_LOGGER
@@ -112,12 +118,12 @@ public class NamingGrpcClientProxy extends AbstractNamingClientProxy {
         requestToServer(request, Response.class);
         namingGrpcConnectionEventListener.removeInstanceForRedo(serviceName, groupName, instance);
     }
-    
+
     @Override
     public void updateInstance(String serviceName, String groupName, Instance instance) throws NacosException {
-    
+
     }
-    
+
     @Override
     public ServiceInfo queryInstancesOfService(String serviceName, String groupName, String clusters, int udpPort,
             boolean healthyOnly) throws NacosException {
@@ -128,27 +134,27 @@ public class NamingGrpcClientProxy extends AbstractNamingClientProxy {
         QueryServiceResponse response = requestToServer(request, QueryServiceResponse.class);
         return response.getServiceInfo();
     }
-    
+
     @Override
     public Service queryService(String serviceName, String groupName) throws NacosException {
         return null;
     }
-    
+
     @Override
     public void createService(Service service, AbstractSelector selector) throws NacosException {
-    
+
     }
-    
+
     @Override
     public boolean deleteService(String serviceName, String groupName) throws NacosException {
         return false;
     }
-    
+
     @Override
     public void updateService(Service service, AbstractSelector selector) throws NacosException {
-    
+
     }
-    
+
     @Override
     public ListView<String> getServiceList(int pageNo, int pageSize, String groupName, AbstractSelector selector)
             throws NacosException {
@@ -164,7 +170,7 @@ public class NamingGrpcClientProxy extends AbstractNamingClientProxy {
         result.setData(response.getServiceNames());
         return result;
     }
-    
+
     @Override
     public ServiceInfo subscribe(String serviceName, String groupName, String clusters) throws NacosException {
         SubscribeServiceRequest request = new SubscribeServiceRequest(namespaceId, groupName, serviceName, clusters,
@@ -174,7 +180,7 @@ public class NamingGrpcClientProxy extends AbstractNamingClientProxy {
                 .cacheSubscriberForRedo(NamingUtils.getGroupedName(serviceName, groupName), clusters);
         return response.getServiceInfo();
     }
-    
+
     @Override
     public void unsubscribe(String serviceName, String groupName, String clusters) throws NacosException {
         SubscribeServiceRequest request = new SubscribeServiceRequest(namespaceId, serviceName, groupName, clusters,
@@ -183,16 +189,16 @@ public class NamingGrpcClientProxy extends AbstractNamingClientProxy {
         namingGrpcConnectionEventListener
                 .removeSubscriberForRedo(NamingUtils.getGroupedName(serviceName, groupName), clusters);
     }
-    
+
     @Override
     public void updateBeatInfo(Set<Instance> modifiedInstances) {
     }
-    
+
     @Override
     public boolean serverHealthy() {
         return rpcClient.isRunning();
     }
-    
+
     private <T extends Response> T requestToServer(AbstractNamingRequest request, Class<T> responseClass)
             throws NacosException {
         try {
@@ -214,12 +220,12 @@ public class NamingGrpcClientProxy extends AbstractNamingClientProxy {
         }
         throw new NacosException(NacosException.SERVER_ERROR, "Server return invalid response");
     }
-    
+
     @Override
     public void shutdown() throws NacosException {
         rpcClient.shutdown();
     }
-    
+
     public boolean isEnable() {
         return rpcClient.isRunning();
     }

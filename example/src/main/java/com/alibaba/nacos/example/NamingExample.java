@@ -40,10 +40,10 @@ public class NamingExample {
     public static void main(String[] args) throws NacosException {
 
         Properties properties = new Properties();
-        properties.setProperty("serverAddr", System.getProperty("serverAddr"));
-//        properties.setProperty("serverAddr", "127.0.0.1:9000");
-//        properties.setProperty("namespace", "quickStart");
-        properties.setProperty("namespace", System.getProperty("namespace"));
+        //        properties.setProperty("serverAddr", System.getProperty("serverAddr"));
+        properties.setProperty("serverAddr", "127.0.0.1:9000");
+        properties.setProperty("namespace", "quickStart");
+        //        properties.setProperty("namespace", System.getProperty("namespace"));
 
         NamingService naming = NamingFactory.createNamingService(properties);
 

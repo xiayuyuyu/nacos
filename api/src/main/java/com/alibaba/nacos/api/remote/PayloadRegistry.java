@@ -35,20 +35,20 @@ import java.util.Set;
  */
 
 public class PayloadRegistry {
-    
+
     private static final Map<String, Class> REGISTRY_REQUEST = new HashMap<String, Class>();
-    
+
     static boolean initialized = false;
-    
+
     public static void init() {
         scan();
     }
-    
+
     private static synchronized void scan() {
         if (initialized) {
             return;
         }
-        
+        //扫描这些包下的request 放入 REGISTRY_REQUEST 中去,key 为simpleName value 为class
         List<String> requestScanPackage = Lists.newArrayList("com.alibaba.nacos.api.naming.remote.request",
                 "com.alibaba.nacos.api.config.remote.request", "com.alibaba.nacos.api.remote.request",
                 "com.alibaba.nacos.naming.cluster.remote.request");
@@ -59,7 +59,7 @@ public class PayloadRegistry {
                 register(clazz.getSimpleName(), clazz);
             }
         }
-        
+        //同上
         List<String> responseScanPackage = Lists.newArrayList("com.alibaba.nacos.api.naming.remote.response",
                 "com.alibaba.nacos.api.config.remote.response", "com.alibaba.nacos.api.remote.response",
                 "com.alibaba.nacos.naming.cluster.remote.response");
@@ -70,10 +70,10 @@ public class PayloadRegistry {
                 register(clazz.getSimpleName(), clazz);
             }
         }
-        
+
         initialized = true;
     }
-    
+
     static void register(String type, Class clazz) {
         if (Modifier.isAbstract(clazz.getModifiers())) {
             return;
@@ -86,7 +86,7 @@ public class PayloadRegistry {
         }
         REGISTRY_REQUEST.put(type, clazz);
     }
-    
+
     public static Class getClassByType(String type) {
         return REGISTRY_REQUEST.get(type);
     }
