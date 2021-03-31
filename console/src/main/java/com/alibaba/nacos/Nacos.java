@@ -30,7 +30,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @ServletComponentScan
 @EnableScheduling
 public class Nacos {
-    
+    //配置扫描包路径
     public static void main(String[] args) {
         SpringApplication.run(Nacos.class, args);
     }

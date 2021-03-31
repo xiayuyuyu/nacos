@@ -72,9 +72,27 @@ Created-By: Apache Maven 3.6.0
 Build-Jdk: 1.8.0_201
 Specification-Version: 2.0.0-BETA
 ```
-** com.alibaba.nacos.Nacos ** 为启动类 再看上面maven脚本构建的顺序
+**com.alibaba.nacos.Nacos** 为启动类 再看上面maven脚本构建的顺序
 
-接下来可以通过example 里面提供的demo来找找入口
+直接看Nacos类,发现配置了包扫描,需要根据springboot的扩展来一个个看
+看了com.alibaba.nacos.core.code.SpringApplicationRunListener 发现里面没什么,就单纯的是一些日志打印,工作目录准备,环境准备之类
+猜测应该启动相关的东西都主要在nacos-core 的module里  继续寻找一下,在resource/META-INFO/spring.factories 下面找到了另外一个扩展点
+com.alibaba.nacos.core.code.StandaloneProfileApplicationListener
+
+com.alibaba.nacos.core.code.StandaloneProfileApplicationListener 里也没东西,线索断了
+继续看core下面的包和类,在remote下看到serverMemberManager,猜测可能服务实例管理有关系,先标记一把
+偶然看到NodeState,用屁股想想,这个应该是每个node的状态枚举类,必定跟服务的注册,下线有关系,于是进去看看start的引用,主要还是在serverMemberManager
+于是继续研究它 
+
+先读注解,发现这些方法必定和集群的节点有关
+
+* nacos 的集群节点管理
+* init() 集群节点管理器初始化
+* shutdown() 集群节点管理器销毁
+* getServerList() 获取健康成员节点的地址信息
+* allMembers() 获取成员信息的对象列表
+* allMembersWithoutSelf() 获取除自己外的所有集群成员节点列表
+稍微找到点线索,之后可以具体分析
 
 
 

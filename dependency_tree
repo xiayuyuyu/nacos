@@ -1,0 +1,1787 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Detecting the operating system and CPU architecture
+[INFO] ------------------------------------------------------------------------
+[INFO] os.detected.name: osx
+[INFO] os.detected.arch: x86_64
+[INFO] os.detected.version: 10.16
+[INFO] os.detected.version.major: 10
+[INFO] os.detected.version.minor: 16
+[INFO] os.detected.classifier: osx-x86_64
+[WARNING] The project com.alibaba.nacos:nacos-all:pom:2.0.0-BETA uses prerequisites which is only intended for maven-plugin projects but not for non maven-plugin projects. For such purposes you should use the maven-enforcer-plugin. See https://maven.apache.org/enforcer/enforcer-rules/requireMavenVersion.html
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Alibaba NACOS 2.0.0-BETA                                           [pom]
+[INFO] nacos-api 2.0.0-BETA                                               [jar]
+[INFO] nacos-common 2.0.0-BETA                                            [jar]
+[INFO] nacos-consistency 2.0.0-BETA                                       [jar]
+[INFO] nacos-sys 2.0.0-BETA                                               [jar]
+[INFO] nacos-auth 2.0.0-BETA                                              [jar]
+[INFO] nacos-core 2.0.0-BETA                                              [jar]
+[INFO] nacos-config 2.0.0-BETA                                            [jar]
+[INFO] nacos-cmdb 2.0.0-BETA                                              [jar]
+[INFO] nacos-naming 2.0.0-BETA                                            [jar]
+[INFO] nacos-address 2.0.0-BETA                                           [jar]
+[INFO] nacos-client 2.0.0-BETA                                            [jar]
+[INFO] nacos-istio 2.0.0-BETA                                             [jar]
+[INFO] nacos-console 2.0.0-BETA                                           [jar]
+[INFO] nacos-test 2.0.0-BETA                                              [jar]
+[INFO] nacos-example 2.0.0-BETA                                           [jar]
+[INFO] nacos-distribution 2.0.0-BETA                                      [pom]
+[INFO] 
+[INFO] --------------------< com.alibaba.nacos:nacos-all >---------------------
+[INFO] Building Alibaba NACOS 2.0.0-BETA 2.0.0-BETA                      [1/17]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-all ---
+[INFO] com.alibaba.nacos:nacos-all:pom:2.0.0-BETA
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] \- org.mockito:mockito-core:jar:2.23.4:test
+[INFO]    +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO]    +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO]    \- org.objenesis:objenesis:jar:2.6:test
+[INFO] 
+[INFO] --------------------< com.alibaba.nacos:nacos-api >---------------------
+[INFO] Building nacos-api 2.0.0-BETA 2.0.0-BETA                          [2/17]
+[INFO] --------------------------------[ jar ]---------------------------------
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/groups/public/io/grpc/grpc-core/maven-metadata.xml
+Downloading from nexus-ndmicro: http://nexus.ndmicro.net/nexus/content/groups/public/io/grpc/grpc-core/maven-metadata.xml
+Progress (1): 3.0 kB                    Downloaded from alimaven: http://maven.aliyun.com/nexus/content/groups/public/io/grpc/grpc-core/maven-metadata.xml (3.0 kB at 2.9 kB/s)
+Progress (1): 1.1/3.1 kBProgress (1): 2.4/3.1 kBProgress (1): 3.1 kB                        Downloaded from nexus-ndmicro: http://nexus.ndmicro.net/nexus/content/groups/public/io/grpc/grpc-core/maven-metadata.xml (3.1 kB at 187 B/s)
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/groups/public/io/grpc/grpc-api/maven-metadata.xml
+Downloading from nexus-ndmicro: http://nexus.ndmicro.net/nexus/content/groups/public/io/grpc/grpc-api/maven-metadata.xml
+Progress (1): 1.4 kB                    Downloaded from alimaven: http://maven.aliyun.com/nexus/content/groups/public/io/grpc/grpc-api/maven-metadata.xml (1.4 kB at 3.7 kB/s)
+Progress (1): 1.1/1.4 kBProgress (1): 1.4 kB                        Downloaded from nexus-ndmicro: http://nexus.ndmicro.net/nexus/content/groups/public/io/grpc/grpc-api/maven-metadata.xml (1.4 kB at 99 B/s)
+Downloading from nexus-ndmicro: http://nexus.ndmicro.net/nexus/content/groups/public/com/google/errorprone/error_prone_annotations/maven-metadata.xml
+Downloading from alimaven: http://maven.aliyun.com/nexus/content/groups/public/com/google/errorprone/error_prone_annotations/maven-metadata.xml
+Progress (1): 1.4 kB                    Downloaded from alimaven: http://maven.aliyun.com/nexus/content/groups/public/com/google/errorprone/error_prone_annotations/maven-metadata.xml (1.4 kB at 2.0 kB/s)
+Progress (1): 1.1/1.4 kBProgress (1): 1.4 kB                        Downloaded from nexus-ndmicro: http://nexus.ndmicro.net/nexus/content/groups/public/com/google/errorprone/error_prone_annotations/maven-metadata.xml (1.4 kB at 42 B/s)
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-api ---
+[INFO] com.alibaba.nacos:nacos-api:jar:2.0.0-BETA
+[INFO] +- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] +- org.reflections:reflections:jar:0.9.11:compile
+[INFO] |  \- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- org.springframework:spring-test:jar:5.1.18.RELEASE:test
+[INFO] |  \- org.springframework:spring-core:jar:5.1.18.RELEASE:test
+[INFO] |     \- org.springframework:spring-jcl:jar:5.1.18.RELEASE:test
+[INFO] +- com.google.guava:guava:jar:24.1.1-jre:compile
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  +- org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[INFO] |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] +- io.grpc:grpc-netty-shaded:jar:1.24.0:compile
+[INFO] |  \- io.grpc:grpc-core:jar:1.24.0:compile (version selected from constraint [1.24.0,1.24.0])
+[INFO] |     +- com.google.code.gson:gson:jar:2.8.6:compile
+[INFO] |     +- com.google.android:annotations:jar:4.1.1.4:compile
+[INFO] |     +- io.perfmark:perfmark-api:jar:0.17.0:compile
+[INFO] |     +- io.opencensus:opencensus-api:jar:0.21.0:compile
+[INFO] |     \- io.opencensus:opencensus-contrib-grpc-metrics:jar:0.21.0:compile
+[INFO] +- io.grpc:grpc-protobuf:jar:1.24.0:compile
+[INFO] |  +- io.grpc:grpc-api:jar:1.24.0:compile
+[INFO] |  |  +- io.grpc:grpc-context:jar:1.24.0:compile
+[INFO] |  |  \- com.google.errorprone:error_prone_annotations:jar:2.3.2:compile
+[INFO] |  \- io.grpc:grpc-protobuf-lite:jar:1.24.0:compile
+[INFO] +- io.grpc:grpc-stub:jar:1.24.0:compile
+[INFO] +- io.netty:netty-all:jar:4.1.51.Final:compile
+[INFO] +- com.google.api.grpc:proto-google-common-protos:jar:1.17.0:compile
+[INFO] +- com.google.protobuf:protobuf-java:jar:3.8.0:compile
+[INFO] +- io.grpc:protoc-gen-grpc-java:pom:1.24.0:compile
+[INFO] +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] \- org.mockito:mockito-core:jar:2.23.4:test
+[INFO]    +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO]    +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO]    \- org.objenesis:objenesis:jar:2.6:test
+[INFO] 
+[INFO] -------------------< com.alibaba.nacos:nacos-common >-------------------
+[INFO] Building nacos-common 2.0.0-BETA 2.0.0-BETA                       [3/17]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-common ---
+[INFO] com.alibaba.nacos:nacos-common:jar:2.0.0-BETA
+[INFO] +- org.slf4j:slf4j-api:jar:1.7.7:compile
+[INFO] +- commons-io:commons-io:jar:2.2:compile
+[INFO] +- org.apache.httpcomponents:httpasyncclient:jar:4.1.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpcore:jar:4.4.1:compile
+[INFO] |  +- org.apache.httpcomponents:httpcore-nio:jar:4.4.13:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.5:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.11:compile
+[INFO] |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] +- com.alibaba.nacos:nacos-api:jar:2.0.0-BETA:compile
+[INFO] |  +- org.reflections:reflections:jar:0.9.11:compile
+[INFO] |  |  \- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  +- com.google.guava:guava:jar:24.1.1-jre:compile
+[INFO] |  |  +- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  |  +- org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[INFO] |  |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] |  +- io.grpc:grpc-netty-shaded:jar:1.24.0:compile
+[INFO] |  |  \- io.grpc:grpc-core:jar:1.24.0:compile (version selected from constraint [1.24.0,1.24.0])
+[INFO] |  |     +- com.google.code.gson:gson:jar:2.8.6:compile
+[INFO] |  |     +- com.google.android:annotations:jar:4.1.1.4:compile
+[INFO] |  |     +- io.perfmark:perfmark-api:jar:0.17.0:compile
+[INFO] |  |     +- io.opencensus:opencensus-api:jar:0.21.0:compile
+[INFO] |  |     \- io.opencensus:opencensus-contrib-grpc-metrics:jar:0.21.0:compile
+[INFO] |  +- io.grpc:grpc-protobuf:jar:1.24.0:compile
+[INFO] |  |  +- io.grpc:grpc-api:jar:1.24.0:compile
+[INFO] |  |  |  +- io.grpc:grpc-context:jar:1.24.0:compile
+[INFO] |  |  |  \- com.google.errorprone:error_prone_annotations:jar:2.3.2:compile
+[INFO] |  |  \- io.grpc:grpc-protobuf-lite:jar:1.24.0:compile
+[INFO] |  +- io.grpc:grpc-stub:jar:1.24.0:compile
+[INFO] |  +- io.netty:netty-all:jar:4.1.51.Final:compile
+[INFO] |  +- com.google.api.grpc:proto-google-common-protos:jar:1.17.0:compile
+[INFO] |  +- com.google.protobuf:protobuf-java:jar:3.8.0:compile
+[INFO] |  +- io.grpc:protoc-gen-grpc-java:pom:1.24.0:compile
+[INFO] |  \- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] \- org.mockito:mockito-core:jar:2.23.4:test
+[INFO]    +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO]    +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO]    \- org.objenesis:objenesis:jar:2.6:test
+[INFO] 
+[INFO] ----------------< com.alibaba.nacos:nacos-consistency >-----------------
+[INFO] Building nacos-consistency 2.0.0-BETA 2.0.0-BETA                  [4/17]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-consistency ---
+[INFO] com.alibaba.nacos:nacos-consistency:jar:2.0.0-BETA
+[INFO] +- com.alibaba.nacos:nacos-common:jar:2.0.0-BETA:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.7:compile
+[INFO] |  +- commons-io:commons-io:jar:2.2:compile
+[INFO] |  +- org.apache.httpcomponents:httpasyncclient:jar:4.1.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.4.1:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore-nio:jar:4.4.13:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.5:compile
+[INFO] |  |  |  \- commons-codec:commons-codec:jar:1.11:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  +- com.alibaba.nacos:nacos-api:jar:2.0.0-BETA:compile
+[INFO] |  |  +- org.reflections:reflections:jar:0.9.11:compile
+[INFO] |  |  |  \- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  |  +- com.google.guava:guava:jar:24.1.1-jre:compile
+[INFO] |  |  |  +- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  |  |  +- org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[INFO] |  |  |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  |  |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] |  |  +- io.grpc:grpc-netty-shaded:jar:1.24.0:compile
+[INFO] |  |  |  \- io.grpc:grpc-core:jar:1.24.0:compile (version selected from constraint [1.24.0,1.24.0])
+[INFO] |  |  |     +- com.google.code.gson:gson:jar:2.8.6:compile
+[INFO] |  |  |     +- com.google.android:annotations:jar:4.1.1.4:compile
+[INFO] |  |  |     +- io.perfmark:perfmark-api:jar:0.17.0:compile
+[INFO] |  |  |     +- io.opencensus:opencensus-api:jar:0.21.0:compile
+[INFO] |  |  |     \- io.opencensus:opencensus-contrib-grpc-metrics:jar:0.21.0:compile
+[INFO] |  |  +- io.grpc:grpc-protobuf:jar:1.24.0:compile
+[INFO] |  |  |  +- io.grpc:grpc-api:jar:1.24.0:compile
+[INFO] |  |  |  |  +- io.grpc:grpc-context:jar:1.24.0:compile
+[INFO] |  |  |  |  \- com.google.errorprone:error_prone_annotations:jar:2.3.2:compile
+[INFO] |  |  |  \- io.grpc:grpc-protobuf-lite:jar:1.24.0:compile
+[INFO] |  |  +- io.grpc:grpc-stub:jar:1.24.0:compile
+[INFO] |  |  +- io.netty:netty-all:jar:4.1.51.Final:compile
+[INFO] |  |  +- com.google.api.grpc:proto-google-common-protos:jar:1.17.0:compile
+[INFO] |  |  +- io.grpc:protoc-gen-grpc-java:pom:1.24.0:compile
+[INFO] |  |  \- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+[INFO] |     \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] +- org.javatuples:javatuples:jar:1.2:compile
+[INFO] +- com.caucho:hessian:jar:4.0.63:compile
+[INFO] +- com.google.protobuf:protobuf-java:jar:3.8.0:compile
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] \- org.mockito:mockito-core:jar:2.23.4:test
+[INFO]    +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO]    +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO]    \- org.objenesis:objenesis:jar:2.6:test
+[INFO] 
+[INFO] --------------------< com.alibaba.nacos:nacos-sys >---------------------
+[INFO] Building nacos-sys 2.0.0-BETA 2.0.0-BETA                          [5/17]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-sys ---
+[INFO] com.alibaba.nacos:nacos-sys:jar:2.0.0-BETA
+[INFO] +- com.alibaba.nacos:nacos-common:jar:2.0.0-BETA:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.7:compile
+[INFO] |  +- commons-io:commons-io:jar:2.2:compile
+[INFO] |  +- org.apache.httpcomponents:httpasyncclient:jar:4.1.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.4.1:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore-nio:jar:4.4.13:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.5:compile
+[INFO] |  |  |  \- commons-codec:commons-codec:jar:1.11:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  +- com.alibaba.nacos:nacos-api:jar:2.0.0-BETA:compile
+[INFO] |  |  +- org.reflections:reflections:jar:0.9.11:compile
+[INFO] |  |  |  \- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  |  +- com.google.guava:guava:jar:24.1.1-jre:compile
+[INFO] |  |  |  +- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  |  |  +- org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[INFO] |  |  |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  |  |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] |  |  +- io.grpc:grpc-netty-shaded:jar:1.24.0:compile
+[INFO] |  |  |  \- io.grpc:grpc-core:jar:1.24.0:compile (version selected from constraint [1.24.0,1.24.0])
+[INFO] |  |  |     +- com.google.code.gson:gson:jar:2.8.6:compile
+[INFO] |  |  |     +- com.google.android:annotations:jar:4.1.1.4:compile
+[INFO] |  |  |     +- io.perfmark:perfmark-api:jar:0.17.0:compile
+[INFO] |  |  |     +- io.opencensus:opencensus-api:jar:0.21.0:compile
+[INFO] |  |  |     \- io.opencensus:opencensus-contrib-grpc-metrics:jar:0.21.0:compile
+[INFO] |  |  +- io.grpc:grpc-protobuf:jar:1.24.0:compile
+[INFO] |  |  |  +- io.grpc:grpc-api:jar:1.24.0:compile
+[INFO] |  |  |  |  +- io.grpc:grpc-context:jar:1.24.0:compile
+[INFO] |  |  |  |  \- com.google.errorprone:error_prone_annotations:jar:2.3.2:compile
+[INFO] |  |  |  \- io.grpc:grpc-protobuf-lite:jar:1.24.0:compile
+[INFO] |  |  +- io.grpc:grpc-stub:jar:1.24.0:compile
+[INFO] |  |  +- io.netty:netty-all:jar:4.1.51.Final:compile
+[INFO] |  |  +- com.google.api.grpc:proto-google-common-protos:jar:1.17.0:compile
+[INFO] |  |  +- com.google.protobuf:protobuf-java:jar:3.8.0:compile
+[INFO] |  |  \- io.grpc:protoc-gen-grpc-java:pom:1.24.0:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+[INFO] |     \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] +- org.springframework.boot:spring-boot-starter:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot:jar:2.1.17.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-context:jar:5.1.18.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-aop:jar:5.1.18.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-beans:jar:5.1.18.RELEASE:compile
+[INFO] |  |     \- org.springframework:spring-expression:jar:5.1.18.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  |  |  \- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2:compile
+[INFO] |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.13.3:compile
+[INFO] |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.30:compile
+[INFO] |  +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  +- org.springframework:spring-core:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:5.1.18.RELEASE:compile
+[INFO] |  \- org.yaml:snakeyaml:jar:1.23:runtime
+[INFO] +- org.springframework.boot:spring-boot-starter-test:jar:2.1.17.RELEASE:test
+[INFO] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:2.1.17.RELEASE:test
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.4.0:test
+[INFO] |  |  \- net.minidev:json-smart:jar:2.3:test
+[INFO] |  |     \- net.minidev:accessors-smart:jar:1.2:test
+[INFO] |  |        \- org.ow2.asm:asm:jar:5.0.4:test
+[INFO] |  +- org.assertj:assertj-core:jar:3.11.1:test
+[INFO] |  +- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] |  +- org.hamcrest:hamcrest-library:jar:1.3:test
+[INFO] |  +- org.skyscreamer:jsonassert:jar:1.5.0:test
+[INFO] |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
+[INFO] |  \- org.xmlunit:xmlunit-core:jar:2.6.4:test
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] +- org.springframework:spring-test:jar:5.1.18.RELEASE:compile
+[INFO] +- org.springframework.boot:spring-boot-test:jar:2.1.17.RELEASE:compile
+[INFO] +- org.apache.commons:commons-lang3:jar:3.4:compile
+[INFO] \- org.mockito:mockito-core:jar:2.23.4:test
+[INFO]    +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO]    +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO]    \- org.objenesis:objenesis:jar:2.6:test
+[INFO] 
+[INFO] --------------------< com.alibaba.nacos:nacos-auth >--------------------
+[INFO] Building nacos-auth 2.0.0-BETA 2.0.0-BETA                         [6/17]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-auth ---
+[INFO] com.alibaba.nacos:nacos-auth:jar:2.0.0-BETA
+[INFO] +- com.alibaba.nacos:nacos-common:jar:2.0.0-BETA:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.7:compile
+[INFO] |  +- commons-io:commons-io:jar:2.2:compile
+[INFO] |  +- org.apache.httpcomponents:httpasyncclient:jar:4.1.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.4.1:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore-nio:jar:4.4.13:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.5:compile
+[INFO] |  |  |  \- commons-codec:commons-codec:jar:1.11:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  +- com.alibaba.nacos:nacos-api:jar:2.0.0-BETA:compile
+[INFO] |  |  +- org.reflections:reflections:jar:0.9.11:compile
+[INFO] |  |  |  \- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  |  +- com.google.guava:guava:jar:24.1.1-jre:compile
+[INFO] |  |  |  +- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  |  |  +- org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[INFO] |  |  |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  |  |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] |  |  +- io.grpc:grpc-netty-shaded:jar:1.24.0:compile
+[INFO] |  |  |  \- io.grpc:grpc-core:jar:1.24.0:compile (version selected from constraint [1.24.0,1.24.0])
+[INFO] |  |  |     +- com.google.code.gson:gson:jar:2.8.6:compile
+[INFO] |  |  |     +- com.google.android:annotations:jar:4.1.1.4:compile
+[INFO] |  |  |     +- io.perfmark:perfmark-api:jar:0.17.0:compile
+[INFO] |  |  |     +- io.opencensus:opencensus-api:jar:0.21.0:compile
+[INFO] |  |  |     \- io.opencensus:opencensus-contrib-grpc-metrics:jar:0.21.0:compile
+[INFO] |  |  +- io.grpc:grpc-protobuf:jar:1.24.0:compile
+[INFO] |  |  |  +- io.grpc:grpc-api:jar:1.24.0:compile
+[INFO] |  |  |  |  +- io.grpc:grpc-context:jar:1.24.0:compile
+[INFO] |  |  |  |  \- com.google.errorprone:error_prone_annotations:jar:2.3.2:compile
+[INFO] |  |  |  \- io.grpc:grpc-protobuf-lite:jar:1.24.0:compile
+[INFO] |  |  +- io.grpc:grpc-stub:jar:1.24.0:compile
+[INFO] |  |  +- io.netty:netty-all:jar:4.1.51.Final:compile
+[INFO] |  |  +- com.google.api.grpc:proto-google-common-protos:jar:1.17.0:compile
+[INFO] |  |  +- com.google.protobuf:protobuf-java:jar:3.8.0:compile
+[INFO] |  |  \- io.grpc:protoc-gen-grpc-java:pom:1.24.0:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+[INFO] |     \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] +- com.alibaba.nacos:nacos-sys:jar:2.0.0-BETA:compile
+[INFO] |  +- org.springframework:spring-test:jar:5.1.18.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:2.1.17.RELEASE:compile
+[INFO] |  \- org.apache.commons:commons-lang3:jar:3.4:compile
+[INFO] +- org.springframework.boot:spring-boot-starter:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot:jar:2.1.17.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-context:jar:5.1.18.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-aop:jar:5.1.18.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-beans:jar:5.1.18.RELEASE:compile
+[INFO] |  |     \- org.springframework:spring-expression:jar:5.1.18.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  |  |  \- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2:compile
+[INFO] |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.13.3:compile
+[INFO] |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.30:compile
+[INFO] |  +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  +- org.springframework:spring-core:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:5.1.18.RELEASE:compile
+[INFO] |  \- org.yaml:snakeyaml:jar:1.23:runtime
+[INFO] +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.38:compile
+[INFO] |  \- org.apache.tomcat:tomcat-annotations-api:jar:9.0.38:compile
+[INFO] +- io.jsonwebtoken:jjwt-api:jar:0.11.2:compile
+[INFO] +- io.jsonwebtoken:jjwt-impl:jar:0.11.2:runtime
+[INFO] +- io.jsonwebtoken:jjwt-jackson:jar:0.11.2:runtime
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] \- org.mockito:mockito-core:jar:2.23.4:test
+[INFO]    +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO]    +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO]    \- org.objenesis:objenesis:jar:2.6:test
+[INFO] 
+[INFO] --------------------< com.alibaba.nacos:nacos-core >--------------------
+[INFO] Building nacos-core 2.0.0-BETA 2.0.0-BETA                         [7/17]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-core ---
+[INFO] com.alibaba.nacos:nacos-core:jar:2.0.0-BETA
+[INFO] +- com.alibaba.nacos:nacos-common:jar:2.0.0-BETA:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.7:compile
+[INFO] |  +- commons-io:commons-io:jar:2.2:compile
+[INFO] |  +- com.alibaba.nacos:nacos-api:jar:2.0.0-BETA:compile
+[INFO] |  |  +- io.netty:netty-all:jar:4.1.51.Final:compile
+[INFO] |  |  \- com.google.api.grpc:proto-google-common-protos:jar:1.17.0:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+[INFO] |     \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] +- com.alibaba.nacos:nacos-consistency:jar:2.0.0-BETA:compile
+[INFO] |  +- com.caucho:hessian:jar:4.0.63:compile
+[INFO] |  \- com.google.protobuf:protobuf-java:jar:3.8.0:compile
+[INFO] +- com.alibaba.nacos:nacos-auth:jar:2.0.0-BETA:compile
+[INFO] |  +- com.alibaba.nacos:nacos-sys:jar:2.0.0-BETA:compile
+[INFO] |  +- io.jsonwebtoken:jjwt-api:jar:0.11.2:compile
+[INFO] |  +- io.jsonwebtoken:jjwt-impl:jar:0.11.2:runtime
+[INFO] |  \- io.jsonwebtoken:jjwt-jackson:jar:0.11.2:runtime
+[INFO] +- org.springframework.boot:spring-boot-starter:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot:jar:2.1.17.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-context:jar:5.1.18.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  |  |  \- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2:compile
+[INFO] |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.13.3:compile
+[INFO] |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.30:compile
+[INFO] |  +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  +- org.springframework:spring-core:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:5.1.18.RELEASE:compile
+[INFO] |  \- org.yaml:snakeyaml:jar:1.23:runtime
+[INFO] +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.springframework:spring-aop:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-beans:jar:5.1.18.RELEASE:compile
+[INFO] |  \- org.aspectj:aspectjweaver:jar:1.9.6:compile
+[INFO] +- org.springframework.boot:spring-boot-configuration-processor:jar:2.1.17.RELEASE:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-security:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.springframework.security:spring-security-config:jar:5.1.12.RELEASE:compile
+[INFO] |  \- org.springframework.security:spring-security-web:jar:5.1.12.RELEASE:compile
+[INFO] |     +- org.springframework:spring-expression:jar:5.1.18.RELEASE:compile
+[INFO] |     \- org.springframework:spring-web:jar:5.1.18.RELEASE:compile
+[INFO] +- org.javatuples:javatuples:jar:1.2:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-test:jar:2.1.17.RELEASE:test
+[INFO] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:2.1.17.RELEASE:test
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.4.0:test
+[INFO] |  |  \- net.minidev:json-smart:jar:2.3:test
+[INFO] |  |     \- net.minidev:accessors-smart:jar:1.2:test
+[INFO] |  +- org.assertj:assertj-core:jar:3.11.1:test
+[INFO] |  +- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] |  +- org.hamcrest:hamcrest-library:jar:1.3:test
+[INFO] |  +- org.skyscreamer:jsonassert:jar:1.5.0:test
+[INFO] |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
+[INFO] |  \- org.xmlunit:xmlunit-core:jar:2.6.4:test
+[INFO] +- org.springframework.security:spring-security-test:jar:5.1.12.RELEASE:test
+[INFO] |  \- org.springframework.security:spring-security-core:jar:5.1.12.RELEASE:compile
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] +- org.springframework:spring-test:jar:5.1.18.RELEASE:compile
+[INFO] +- org.springframework.boot:spring-boot-test:jar:2.1.17.RELEASE:compile
+[INFO] +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.38:compile
+[INFO] |  \- org.apache.tomcat:tomcat-annotations-api:jar:9.0.38:compile
+[INFO] +- com.alipay.sofa:jraft-core:jar:1.3.5:compile
+[INFO] |  +- org.ow2.asm:asm:jar:6.0:compile
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |  +- org.rocksdb:rocksdbjni:jar:5.18.4:compile
+[INFO] |  +- net.java.dev.jna:jna:jar:4.5.2:compile
+[INFO] |  +- org.jctools:jctools-core:jar:2.1.1:compile
+[INFO] |  +- com.lmax:disruptor:jar:3.3.7:compile
+[INFO] |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  +- com.alipay.sofa:hessian:jar:3.3.6:compile
+[INFO] |  \- io.dropwizard.metrics:metrics-core:jar:4.0.7:compile
+[INFO] +- com.alipay.sofa:rpc-grpc-impl:jar:1.3.5:compile
+[INFO] |  +- io.grpc:grpc-netty-shaded:jar:1.24.0:compile
+[INFO] |  |  \- io.grpc:grpc-core:jar:1.24.0:compile (version selected from constraint [1.24.0,1.24.0])
+[INFO] |  |     +- com.google.code.gson:gson:jar:2.8.6:compile
+[INFO] |  |     +- com.google.android:annotations:jar:4.1.1.4:compile
+[INFO] |  |     +- io.perfmark:perfmark-api:jar:0.17.0:compile
+[INFO] |  |     +- io.opencensus:opencensus-api:jar:0.21.0:compile
+[INFO] |  |     \- io.opencensus:opencensus-contrib-grpc-metrics:jar:0.21.0:compile
+[INFO] |  +- io.grpc:grpc-protobuf:jar:1.24.0:compile
+[INFO] |  |  +- io.grpc:grpc-api:jar:1.24.0:compile
+[INFO] |  |  |  +- io.grpc:grpc-context:jar:1.24.0:compile
+[INFO] |  |  |  \- com.google.errorprone:error_prone_annotations:jar:2.3.2:compile
+[INFO] |  |  \- io.grpc:grpc-protobuf-lite:jar:1.24.0:compile
+[INFO] |  \- io.grpc:grpc-stub:jar:1.24.0:compile
+[INFO] +- org.aspectj:aspectjrt:jar:1.9.6:compile
+[INFO] +- cglib:cglib-nodep:jar:2.1:compile
+[INFO] +- org.apache.httpcomponents:httpasyncclient:jar:4.1.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpcore:jar:4.4.1:compile
+[INFO] |  +- org.apache.httpcomponents:httpcore-nio:jar:4.4.13:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.5:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.11:compile
+[INFO] |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] +- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] +- org.reflections:reflections:jar:0.9.11:compile
+[INFO] |  +- com.google.guava:guava:jar:24.1.1-jre:compile
+[INFO] |  |  +- org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[INFO] |  |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] |  \- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] +- io.micrometer:micrometer-registry-prometheus:jar:1.1.18:compile
+[INFO] |  +- io.micrometer:micrometer-core:jar:1.1.18:compile
+[INFO] |  |  +- org.hdrhistogram:HdrHistogram:jar:2.1.9:compile
+[INFO] |  |  \- org.latencyutils:LatencyUtils:jar:2.0.3:compile
+[INFO] |  \- io.prometheus:simpleclient_common:jar:0.5.0:compile
+[INFO] |     \- io.prometheus:simpleclient:jar:0.5.0:compile
+[INFO] +- io.micrometer:micrometer-registry-influx:jar:1.1.18:compile
+[INFO] +- io.micrometer:micrometer-registry-elastic:jar:1.1.18:compile
+[INFO] +- io.grpc:protoc-gen-grpc-java:pom:1.24.0:compile
+[INFO] +- org.apache.commons:commons-lang3:jar:3.4:compile
+[INFO] \- org.mockito:mockito-core:jar:2.23.4:test
+[INFO]    +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO]    +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO]    \- org.objenesis:objenesis:jar:2.6:test
+[INFO] 
+[INFO] -------------------< com.alibaba.nacos:nacos-config >-------------------
+[INFO] Building nacos-config 2.0.0-BETA 2.0.0-BETA                       [8/17]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-config ---
+[INFO] com.alibaba.nacos:nacos-config:jar:2.0.0-BETA
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- org.springframework.boot:spring-boot-starter-web:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2:compile
+[INFO] |  |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.13.3:compile
+[INFO] |  |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.30:compile
+[INFO] |  |  +- org.springframework:spring-core:jar:5.1.18.RELEASE:compile
+[INFO] |  |  |  \- org.springframework:spring-jcl:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:1.23:runtime
+[INFO] |  +- org.springframework.boot:spring-boot-starter-json:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.9.10:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.10:compile
+[INFO] |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.9.10:compile
+[INFO] |  +- org.hibernate.validator:hibernate-validator:jar:6.0.20.Final:compile
+[INFO] |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  +- org.jboss.logging:jboss-logging:jar:3.3.3.Final:compile
+[INFO] |  |  \- com.fasterxml:classmate:jar:1.4.0:compile
+[INFO] |  +- org.springframework:spring-web:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-beans:jar:5.1.18.RELEASE:compile
+[INFO] |  \- org.springframework:spring-webmvc:jar:5.1.18.RELEASE:compile
+[INFO] |     +- org.springframework:spring-context:jar:5.1.18.RELEASE:compile
+[INFO] |     \- org.springframework:spring-expression:jar:5.1.18.RELEASE:compile
+[INFO] +- com.alibaba.nacos:nacos-api:jar:2.0.0-BETA:compile
+[INFO] |  +- org.reflections:reflections:jar:0.9.11:compile
+[INFO] |  |  \- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  +- io.grpc:grpc-netty-shaded:jar:1.24.0:compile
+[INFO] |  |  \- io.grpc:grpc-core:jar:1.24.0:compile (version selected from constraint [1.24.0,1.24.0])
+[INFO] |  |     +- com.google.code.gson:gson:jar:2.8.6:compile
+[INFO] |  |     +- com.google.android:annotations:jar:4.1.1.4:compile
+[INFO] |  |     +- io.perfmark:perfmark-api:jar:0.17.0:compile
+[INFO] |  |     +- io.opencensus:opencensus-api:jar:0.21.0:compile
+[INFO] |  |     \- io.opencensus:opencensus-contrib-grpc-metrics:jar:0.21.0:compile
+[INFO] |  +- io.grpc:grpc-protobuf:jar:1.24.0:compile
+[INFO] |  |  +- io.grpc:grpc-api:jar:1.24.0:compile
+[INFO] |  |  |  +- io.grpc:grpc-context:jar:1.24.0:compile
+[INFO] |  |  |  \- com.google.errorprone:error_prone_annotations:jar:2.3.2:compile
+[INFO] |  |  \- io.grpc:grpc-protobuf-lite:jar:1.24.0:compile
+[INFO] |  +- io.grpc:grpc-stub:jar:1.24.0:compile
+[INFO] |  +- io.netty:netty-all:jar:4.1.51.Final:compile
+[INFO] |  +- com.google.api.grpc:proto-google-common-protos:jar:1.17.0:compile
+[INFO] |  +- com.google.protobuf:protobuf-java:jar:3.8.0:compile
+[INFO] |  +- io.grpc:protoc-gen-grpc-java:pom:1.24.0:compile
+[INFO] |  \- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] +- com.alibaba.nacos:nacos-core:jar:2.0.0-BETA:compile
+[INFO] |  +- com.alibaba.nacos:nacos-common:jar:2.0.0-BETA:compile
+[INFO] |  +- com.alibaba.nacos:nacos-consistency:jar:2.0.0-BETA:compile
+[INFO] |  |  \- com.caucho:hessian:jar:4.0.63:compile
+[INFO] |  +- com.alibaba.nacos:nacos-auth:jar:2.0.0-BETA:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-sys:jar:2.0.0-BETA:compile
+[INFO] |  |  +- io.jsonwebtoken:jjwt-api:jar:0.11.2:compile
+[INFO] |  |  +- io.jsonwebtoken:jjwt-impl:jar:0.11.2:runtime
+[INFO] |  |  \- io.jsonwebtoken:jjwt-jackson:jar:0.11.2:runtime
+[INFO] |  +- org.springframework.boot:spring-boot-starter-security:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.security:spring-security-config:jar:5.1.12.RELEASE:compile
+[INFO] |  |  |  \- org.springframework.security:spring-security-core:jar:5.1.12.RELEASE:compile
+[INFO] |  |  \- org.springframework.security:spring-security-web:jar:5.1.12.RELEASE:compile
+[INFO] |  +- org.javatuples:javatuples:jar:1.2:compile
+[INFO] |  +- org.springframework:spring-test:jar:5.1.18.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.38:compile
+[INFO] |  |  \- org.apache.tomcat:tomcat-annotations-api:jar:9.0.38:compile
+[INFO] |  +- com.alipay.sofa:jraft-core:jar:1.3.5:compile
+[INFO] |  |  +- org.ow2.asm:asm:jar:6.0:compile
+[INFO] |  |  +- org.rocksdb:rocksdbjni:jar:5.18.4:compile
+[INFO] |  |  +- net.java.dev.jna:jna:jar:4.5.2:compile
+[INFO] |  |  +- org.jctools:jctools-core:jar:2.1.1:compile
+[INFO] |  |  +- com.lmax:disruptor:jar:3.3.7:compile
+[INFO] |  |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  |  +- com.alipay.sofa:hessian:jar:3.3.6:compile
+[INFO] |  |  \- io.dropwizard.metrics:metrics-core:jar:4.0.7:compile
+[INFO] |  +- com.alipay.sofa:rpc-grpc-impl:jar:1.3.5:compile
+[INFO] |  \- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] +- com.google.guava:guava:jar:24.1.1-jre:compile
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  +- org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[INFO] |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-jdbc:jar:2.1.17.RELEASE:compile
+[INFO] |  +- com.zaxxer:HikariCP:jar:3.4.2:compile
+[INFO] |  \- org.springframework:spring-jdbc:jar:5.1.18.RELEASE:compile
+[INFO] |     \- org.springframework:spring-tx:jar:5.1.18.RELEASE:compile
+[INFO] +- commons-io:commons-io:jar:2.2:compile
+[INFO] +- mysql:mysql-connector-java:jar:8.0.16:compile
+[INFO] +- org.apache.derby:derby:jar:10.14.2.0:compile
+[INFO] +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  +- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  \- org.slf4j:slf4j-api:jar:1.7.7:compile
+[INFO] +- org.aspectj:aspectjrt:jar:1.9.6:compile
+[INFO] +- cglib:cglib-nodep:jar:2.1:compile
+[INFO] +- org.apache.httpcomponents:httpasyncclient:jar:4.1.3:compile
+[INFO] |  +- org.apache.httpcomponents:httpcore:jar:4.4.1:compile
+[INFO] |  +- org.apache.httpcomponents:httpcore-nio:jar:4.4.13:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.5:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.11:compile
+[INFO] |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-tomcat:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.38:compile
+[INFO] |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:9.0.38:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] +- net.jcip:jcip-annotations:jar:1.0:compile
+[INFO] +- org.apache.commons:commons-lang3:jar:3.4:compile
+[INFO] +- io.micrometer:micrometer-registry-prometheus:jar:1.1.18:compile
+[INFO] |  +- io.micrometer:micrometer-core:jar:1.1.18:compile
+[INFO] |  |  +- org.hdrhistogram:HdrHistogram:jar:2.1.9:compile
+[INFO] |  |  \- org.latencyutils:LatencyUtils:jar:2.0.3:compile
+[INFO] |  \- io.prometheus:simpleclient_common:jar:0.5.0:compile
+[INFO] |     \- io.prometheus:simpleclient:jar:0.5.0:compile
+[INFO] +- io.micrometer:micrometer-registry-influx:jar:1.1.18:compile
+[INFO] +- io.micrometer:micrometer-registry-elastic:jar:1.1.18:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.springframework:spring-aop:jar:5.1.18.RELEASE:compile
+[INFO] |  \- org.aspectj:aspectjweaver:jar:1.9.6:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-actuator:jar:2.1.17.RELEASE:compile
+[INFO] |  \- org.springframework.boot:spring-boot-actuator-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |     \- org.springframework.boot:spring-boot-actuator:jar:2.1.17.RELEASE:compile
+[INFO] \- org.mockito:mockito-core:jar:2.23.4:test
+[INFO]    +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO]    +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO]    \- org.objenesis:objenesis:jar:2.6:test
+[INFO] 
+[INFO] --------------------< com.alibaba.nacos:nacos-cmdb >--------------------
+[INFO] Building nacos-cmdb 2.0.0-BETA 2.0.0-BETA                         [9/17]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-cmdb ---
+[INFO] com.alibaba.nacos:nacos-cmdb:jar:2.0.0-BETA
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- com.alibaba.nacos:nacos-core:jar:2.0.0-BETA:compile
+[INFO] |  +- com.alibaba.nacos:nacos-common:jar:2.0.0-BETA:compile
+[INFO] |  |  +- org.slf4j:slf4j-api:jar:1.7.7:compile
+[INFO] |  |  \- commons-io:commons-io:jar:2.2:compile
+[INFO] |  +- com.alibaba.nacos:nacos-consistency:jar:2.0.0-BETA:compile
+[INFO] |  |  \- com.caucho:hessian:jar:4.0.63:compile
+[INFO] |  +- com.alibaba.nacos:nacos-auth:jar:2.0.0-BETA:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-sys:jar:2.0.0-BETA:compile
+[INFO] |  |  +- io.jsonwebtoken:jjwt-api:jar:0.11.2:compile
+[INFO] |  |  +- io.jsonwebtoken:jjwt-impl:jar:0.11.2:runtime
+[INFO] |  |  \- io.jsonwebtoken:jjwt-jackson:jar:0.11.2:runtime
+[INFO] |  +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-aop:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.aspectj:aspectjweaver:jar:1.9.6:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-security:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.security:spring-security-config:jar:5.1.12.RELEASE:compile
+[INFO] |  |  |  \- org.springframework.security:spring-security-core:jar:5.1.12.RELEASE:compile
+[INFO] |  |  \- org.springframework.security:spring-security-web:jar:5.1.12.RELEASE:compile
+[INFO] |  +- org.javatuples:javatuples:jar:1.2:compile
+[INFO] |  +- org.springframework:spring-test:jar:5.1.18.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.38:compile
+[INFO] |  |  \- org.apache.tomcat:tomcat-annotations-api:jar:9.0.38:compile
+[INFO] |  +- com.alipay.sofa:jraft-core:jar:1.3.5:compile
+[INFO] |  |  +- org.ow2.asm:asm:jar:6.0:compile
+[INFO] |  |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |  |  +- org.rocksdb:rocksdbjni:jar:5.18.4:compile
+[INFO] |  |  +- net.java.dev.jna:jna:jar:4.5.2:compile
+[INFO] |  |  +- org.jctools:jctools-core:jar:2.1.1:compile
+[INFO] |  |  +- com.lmax:disruptor:jar:3.3.7:compile
+[INFO] |  |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  |  +- com.alipay.sofa:hessian:jar:3.3.6:compile
+[INFO] |  |  \- io.dropwizard.metrics:metrics-core:jar:4.0.7:compile
+[INFO] |  +- com.alipay.sofa:rpc-grpc-impl:jar:1.3.5:compile
+[INFO] |  +- org.aspectj:aspectjrt:jar:1.9.6:compile
+[INFO] |  +- cglib:cglib-nodep:jar:2.1:compile
+[INFO] |  +- org.apache.httpcomponents:httpasyncclient:jar:4.1.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.4.1:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore-nio:jar:4.4.13:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.5:compile
+[INFO] |  |  |  \- commons-codec:commons-codec:jar:1.11:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  +- org.reflections:reflections:jar:0.9.11:compile
+[INFO] |  |  \- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  +- io.micrometer:micrometer-registry-prometheus:jar:1.1.18:compile
+[INFO] |  |  +- io.micrometer:micrometer-core:jar:1.1.18:compile
+[INFO] |  |  |  +- org.hdrhistogram:HdrHistogram:jar:2.1.9:compile
+[INFO] |  |  |  \- org.latencyutils:LatencyUtils:jar:2.0.3:compile
+[INFO] |  |  \- io.prometheus:simpleclient_common:jar:0.5.0:compile
+[INFO] |  |     \- io.prometheus:simpleclient:jar:0.5.0:compile
+[INFO] |  +- io.micrometer:micrometer-registry-influx:jar:1.1.18:compile
+[INFO] |  +- io.micrometer:micrometer-registry-elastic:jar:1.1.18:compile
+[INFO] |  +- io.grpc:protoc-gen-grpc-java:pom:1.24.0:compile
+[INFO] |  \- org.apache.commons:commons-lang3:jar:3.4:compile
+[INFO] +- com.alibaba.nacos:nacos-api:jar:2.0.0-BETA:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] |  +- com.google.guava:guava:jar:24.1.1-jre:compile
+[INFO] |  |  +- org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[INFO] |  |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] |  +- io.grpc:grpc-netty-shaded:jar:1.24.0:compile
+[INFO] |  |  \- io.grpc:grpc-core:jar:1.24.0:compile (version selected from constraint [1.24.0,1.24.0])
+[INFO] |  |     +- com.google.code.gson:gson:jar:2.8.6:compile
+[INFO] |  |     +- com.google.android:annotations:jar:4.1.1.4:compile
+[INFO] |  |     +- io.perfmark:perfmark-api:jar:0.17.0:compile
+[INFO] |  |     +- io.opencensus:opencensus-api:jar:0.21.0:compile
+[INFO] |  |     \- io.opencensus:opencensus-contrib-grpc-metrics:jar:0.21.0:compile
+[INFO] |  +- io.grpc:grpc-protobuf:jar:1.24.0:compile
+[INFO] |  |  +- io.grpc:grpc-api:jar:1.24.0:compile
+[INFO] |  |  |  +- io.grpc:grpc-context:jar:1.24.0:compile
+[INFO] |  |  |  \- com.google.errorprone:error_prone_annotations:jar:2.3.2:compile
+[INFO] |  |  \- io.grpc:grpc-protobuf-lite:jar:1.24.0:compile
+[INFO] |  +- io.grpc:grpc-stub:jar:1.24.0:compile
+[INFO] |  +- io.netty:netty-all:jar:4.1.51.Final:compile
+[INFO] |  +- com.google.api.grpc:proto-google-common-protos:jar:1.17.0:compile
+[INFO] |  +- com.google.protobuf:protobuf-java:jar:3.8.0:compile
+[INFO] |  \- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] +- org.springframework.boot:spring-boot:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.springframework:spring-core:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:5.1.18.RELEASE:compile
+[INFO] |  \- org.springframework:spring-context:jar:5.1.18.RELEASE:compile
+[INFO] |     +- org.springframework:spring-beans:jar:5.1.18.RELEASE:compile
+[INFO] |     \- org.springframework:spring-expression:jar:5.1.18.RELEASE:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-web:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  |  |  |  \- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2:compile
+[INFO] |  |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.13.3:compile
+[INFO] |  |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.30:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:1.23:runtime
+[INFO] |  +- org.springframework.boot:spring-boot-starter-json:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.9.10:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.10:compile
+[INFO] |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.9.10:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.38:compile
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:9.0.38:compile
+[INFO] |  +- org.hibernate.validator:hibernate-validator:jar:6.0.20.Final:compile
+[INFO] |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  +- org.jboss.logging:jboss-logging:jar:3.3.3.Final:compile
+[INFO] |  |  \- com.fasterxml:classmate:jar:1.4.0:compile
+[INFO] |  +- org.springframework:spring-web:jar:5.1.18.RELEASE:compile
+[INFO] |  \- org.springframework:spring-webmvc:jar:5.1.18.RELEASE:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-test:jar:2.1.17.RELEASE:test
+[INFO] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:2.1.17.RELEASE:test
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.4.0:test
+[INFO] |  |  \- net.minidev:json-smart:jar:2.3:test
+[INFO] |  |     \- net.minidev:accessors-smart:jar:1.2:test
+[INFO] |  +- org.assertj:assertj-core:jar:3.11.1:test
+[INFO] |  +- org.hamcrest:hamcrest-library:jar:1.3:test
+[INFO] |  +- org.skyscreamer:jsonassert:jar:1.5.0:test
+[INFO] |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
+[INFO] |  \- org.xmlunit:xmlunit-core:jar:2.6.4:test
+[INFO] \- org.mockito:mockito-core:jar:2.23.4:test
+[INFO]    +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO]    +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO]    \- org.objenesis:objenesis:jar:2.6:test
+[INFO] 
+[INFO] -------------------< com.alibaba.nacos:nacos-naming >-------------------
+[INFO] Building nacos-naming 2.0.0-BETA 2.0.0-BETA                      [10/17]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-naming ---
+[INFO] com.alibaba.nacos:nacos-naming:jar:2.0.0-BETA
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- com.alibaba.nacos:nacos-core:jar:2.0.0-BETA:compile
+[INFO] |  +- com.alibaba.nacos:nacos-common:jar:2.0.0-BETA:compile
+[INFO] |  |  \- commons-io:commons-io:jar:2.2:compile
+[INFO] |  +- com.alibaba.nacos:nacos-consistency:jar:2.0.0-BETA:compile
+[INFO] |  |  \- com.caucho:hessian:jar:4.0.63:compile
+[INFO] |  +- com.alibaba.nacos:nacos-auth:jar:2.0.0-BETA:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-sys:jar:2.0.0-BETA:compile
+[INFO] |  |  +- io.jsonwebtoken:jjwt-api:jar:0.11.2:compile
+[INFO] |  |  +- io.jsonwebtoken:jjwt-impl:jar:0.11.2:runtime
+[INFO] |  |  \- io.jsonwebtoken:jjwt-jackson:jar:0.11.2:runtime
+[INFO] |  +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-aop:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.aspectj:aspectjweaver:jar:1.9.6:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-security:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.security:spring-security-config:jar:5.1.12.RELEASE:compile
+[INFO] |  |  |  \- org.springframework.security:spring-security-core:jar:5.1.12.RELEASE:compile
+[INFO] |  |  \- org.springframework.security:spring-security-web:jar:5.1.12.RELEASE:compile
+[INFO] |  +- org.springframework:spring-test:jar:5.1.18.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.38:compile
+[INFO] |  |  \- org.apache.tomcat:tomcat-annotations-api:jar:9.0.38:compile
+[INFO] |  +- com.alipay.sofa:jraft-core:jar:1.3.5:compile
+[INFO] |  |  +- org.ow2.asm:asm:jar:6.0:compile
+[INFO] |  |  +- org.rocksdb:rocksdbjni:jar:5.18.4:compile
+[INFO] |  |  +- net.java.dev.jna:jna:jar:4.5.2:compile
+[INFO] |  |  +- org.jctools:jctools-core:jar:2.1.1:compile
+[INFO] |  |  +- com.lmax:disruptor:jar:3.3.7:compile
+[INFO] |  |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  |  +- com.alipay.sofa:hessian:jar:3.3.6:compile
+[INFO] |  |  \- io.dropwizard.metrics:metrics-core:jar:4.0.7:compile
+[INFO] |  +- com.alipay.sofa:rpc-grpc-impl:jar:1.3.5:compile
+[INFO] |  +- org.aspectj:aspectjrt:jar:1.9.6:compile
+[INFO] |  +- cglib:cglib-nodep:jar:2.1:compile
+[INFO] |  +- org.apache.httpcomponents:httpasyncclient:jar:4.1.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore-nio:jar:4.4.13:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  +- org.reflections:reflections:jar:0.9.11:compile
+[INFO] |  |  \- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  +- io.grpc:protoc-gen-grpc-java:pom:1.24.0:compile
+[INFO] |  \- org.apache.commons:commons-lang3:jar:3.4:compile
+[INFO] +- com.alibaba.nacos:nacos-api:jar:2.0.0-BETA:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] |  +- io.grpc:grpc-netty-shaded:jar:1.24.0:compile
+[INFO] |  |  \- io.grpc:grpc-core:jar:1.24.0:compile (version selected from constraint [1.24.0,1.24.0])
+[INFO] |  |     +- com.google.code.gson:gson:jar:2.8.6:compile
+[INFO] |  |     +- com.google.android:annotations:jar:4.1.1.4:compile
+[INFO] |  |     +- io.perfmark:perfmark-api:jar:0.17.0:compile
+[INFO] |  |     +- io.opencensus:opencensus-api:jar:0.21.0:compile
+[INFO] |  |     \- io.opencensus:opencensus-contrib-grpc-metrics:jar:0.21.0:compile
+[INFO] |  +- io.grpc:grpc-protobuf:jar:1.24.0:compile
+[INFO] |  |  +- io.grpc:grpc-api:jar:1.24.0:compile
+[INFO] |  |  |  +- io.grpc:grpc-context:jar:1.24.0:compile
+[INFO] |  |  |  \- com.google.errorprone:error_prone_annotations:jar:2.3.2:compile
+[INFO] |  |  \- io.grpc:grpc-protobuf-lite:jar:1.24.0:compile
+[INFO] |  +- io.grpc:grpc-stub:jar:1.24.0:compile
+[INFO] |  +- com.google.api.grpc:proto-google-common-protos:jar:1.17.0:compile
+[INFO] |  +- com.google.protobuf:protobuf-java:jar:3.8.0:compile
+[INFO] |  \- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] +- io.netty:netty-all:jar:4.1.51.Final:compile
+[INFO] +- org.springframework.boot:spring-boot:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.springframework:spring-core:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:5.1.18.RELEASE:compile
+[INFO] |  \- org.springframework:spring-context:jar:5.1.18.RELEASE:compile
+[INFO] |     +- org.springframework:spring-beans:jar:5.1.18.RELEASE:compile
+[INFO] |     \- org.springframework:spring-expression:jar:5.1.18.RELEASE:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-web:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  \- org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2:compile
+[INFO] |  |  |     \- org.apache.logging.log4j:log4j-api:jar:2.13.3:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:1.23:runtime
+[INFO] |  +- org.springframework.boot:spring-boot-starter-json:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.9.10:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.10:compile
+[INFO] |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.9.10:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.38:compile
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:9.0.38:compile
+[INFO] |  +- org.hibernate.validator:hibernate-validator:jar:6.0.20.Final:compile
+[INFO] |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  +- org.jboss.logging:jboss-logging:jar:3.3.3.Final:compile
+[INFO] |  |  \- com.fasterxml:classmate:jar:1.4.0:compile
+[INFO] |  +- org.springframework:spring-web:jar:5.1.18.RELEASE:compile
+[INFO] |  \- org.springframework:spring-webmvc:jar:5.1.18.RELEASE:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-test:jar:2.1.17.RELEASE:test
+[INFO] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:2.1.17.RELEASE:test
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.4.0:test
+[INFO] |  |  \- net.minidev:json-smart:jar:2.3:test
+[INFO] |  |     \- net.minidev:accessors-smart:jar:1.2:test
+[INFO] |  +- org.assertj:assertj-core:jar:3.11.1:test
+[INFO] |  +- org.hamcrest:hamcrest-library:jar:1.3:test
+[INFO] |  +- org.skyscreamer:jsonassert:jar:1.5.0:test
+[INFO] |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
+[INFO] |  \- org.xmlunit:xmlunit-core:jar:2.6.4:test
+[INFO] +- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] +- org.codehaus.jackson:jackson-core-asl:jar:1.9.13:compile
+[INFO] +- org.slf4j:slf4j-api:jar:1.7.7:compile
+[INFO] +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] +- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] +- org.apache.mina:mina-core:jar:2.0.0-RC1:compile
+[INFO] +- com.google.guava:guava:jar:24.1.1-jre:compile
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  +- org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[INFO] |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] +- org.javatuples:javatuples:jar:1.2:compile
+[INFO] +- org.apache.httpcomponents:httpcore:jar:4.4.1:compile
+[INFO] +- org.apache.httpcomponents:httpclient:jar:4.5:compile
+[INFO] |  \- commons-codec:commons-codec:jar:1.11:compile
+[INFO] +- mysql:mysql-connector-java:jar:8.0.16:compile
+[INFO] +- org.slf4j:log4j-over-slf4j:jar:1.7.30:compile
+[INFO] +- org.slf4j:jcl-over-slf4j:jar:1.7.30:compile
+[INFO] +- org.slf4j:jul-to-slf4j:jar:1.7.30:compile
+[INFO] +- com.alibaba.nacos:nacos-cmdb:jar:2.0.0-BETA:compile
+[INFO] +- io.micrometer:micrometer-registry-prometheus:jar:1.1.18:compile
+[INFO] |  +- io.micrometer:micrometer-core:jar:1.1.18:compile
+[INFO] |  |  +- org.hdrhistogram:HdrHistogram:jar:2.1.9:compile
+[INFO] |  |  \- org.latencyutils:LatencyUtils:jar:2.0.3:compile
+[INFO] |  \- io.prometheus:simpleclient_common:jar:0.5.0:compile
+[INFO] |     \- io.prometheus:simpleclient:jar:0.5.0:compile
+[INFO] +- io.micrometer:micrometer-registry-elastic:jar:1.1.18:compile
+[INFO] +- io.micrometer:micrometer-registry-influx:jar:1.1.18:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-actuator:jar:2.1.17.RELEASE:compile
+[INFO] |  \- org.springframework.boot:spring-boot-actuator-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |     \- org.springframework.boot:spring-boot-actuator:jar:2.1.17.RELEASE:compile
+[INFO] \- org.mockito:mockito-core:jar:2.23.4:test
+[INFO]    +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO]    +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO]    \- org.objenesis:objenesis:jar:2.6:test
+[INFO] 
+[INFO] ------------------< com.alibaba.nacos:nacos-address >-------------------
+[INFO] Building nacos-address 2.0.0-BETA 2.0.0-BETA                     [11/17]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-address ---
+[INFO] com.alibaba.nacos:nacos-address:jar:2.0.0-BETA
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- com.alibaba.nacos:nacos-naming:jar:2.0.0-BETA:compile
+[INFO] |  +- com.alibaba.nacos:nacos-core:jar:2.0.0-BETA:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-common:jar:2.0.0-BETA:compile
+[INFO] |  |  |  \- commons-io:commons-io:jar:2.2:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-consistency:jar:2.0.0-BETA:compile
+[INFO] |  |  |  \- com.caucho:hessian:jar:4.0.63:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-auth:jar:2.0.0-BETA:compile
+[INFO] |  |  |  +- com.alibaba.nacos:nacos-sys:jar:2.0.0-BETA:compile
+[INFO] |  |  |  +- io.jsonwebtoken:jjwt-api:jar:0.11.2:compile
+[INFO] |  |  |  +- io.jsonwebtoken:jjwt-impl:jar:0.11.2:runtime
+[INFO] |  |  |  \- io.jsonwebtoken:jjwt-jackson:jar:0.11.2:runtime
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- org.springframework:spring-aop:jar:5.1.18.RELEASE:compile
+[INFO] |  |  |  \- org.aspectj:aspectjweaver:jar:1.9.6:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-security:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- org.springframework.security:spring-security-config:jar:5.1.12.RELEASE:compile
+[INFO] |  |  |  |  \- org.springframework.security:spring-security-core:jar:5.1.12.RELEASE:compile
+[INFO] |  |  |  \- org.springframework.security:spring-security-web:jar:5.1.12.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-test:jar:5.1.18.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-test:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.38:compile
+[INFO] |  |  |  \- org.apache.tomcat:tomcat-annotations-api:jar:9.0.38:compile
+[INFO] |  |  +- com.alipay.sofa:jraft-core:jar:1.3.5:compile
+[INFO] |  |  |  +- org.ow2.asm:asm:jar:6.0:compile
+[INFO] |  |  |  +- org.rocksdb:rocksdbjni:jar:5.18.4:compile
+[INFO] |  |  |  +- net.java.dev.jna:jna:jar:4.5.2:compile
+[INFO] |  |  |  +- org.jctools:jctools-core:jar:2.1.1:compile
+[INFO] |  |  |  +- com.lmax:disruptor:jar:3.3.7:compile
+[INFO] |  |  |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  |  |  +- com.alipay.sofa:hessian:jar:3.3.6:compile
+[INFO] |  |  |  \- io.dropwizard.metrics:metrics-core:jar:4.0.7:compile
+[INFO] |  |  +- com.alipay.sofa:rpc-grpc-impl:jar:1.3.5:compile
+[INFO] |  |  +- org.aspectj:aspectjrt:jar:1.9.6:compile
+[INFO] |  |  +- cglib:cglib-nodep:jar:2.1:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpasyncclient:jar:4.1.3:compile
+[INFO] |  |  |  +- org.apache.httpcomponents:httpcore-nio:jar:4.4.13:compile
+[INFO] |  |  |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  |  +- org.reflections:reflections:jar:0.9.11:compile
+[INFO] |  |  |  \- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  |  +- io.grpc:protoc-gen-grpc-java:pom:1.24.0:compile
+[INFO] |  |  \- org.apache.commons:commons-lang3:jar:3.4:compile
+[INFO] |  +- com.alibaba.nacos:nacos-api:jar:2.0.0-BETA:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+[INFO] |  |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] |  |  +- io.grpc:grpc-netty-shaded:jar:1.24.0:compile
+[INFO] |  |  |  \- io.grpc:grpc-core:jar:1.24.0:compile (version selected from constraint [1.24.0,1.24.0])
+[INFO] |  |  |     +- com.google.code.gson:gson:jar:2.8.6:compile
+[INFO] |  |  |     +- com.google.android:annotations:jar:4.1.1.4:compile
+[INFO] |  |  |     +- io.perfmark:perfmark-api:jar:0.17.0:compile
+[INFO] |  |  |     +- io.opencensus:opencensus-api:jar:0.21.0:compile
+[INFO] |  |  |     \- io.opencensus:opencensus-contrib-grpc-metrics:jar:0.21.0:compile
+[INFO] |  |  +- io.grpc:grpc-protobuf:jar:1.24.0:compile
+[INFO] |  |  |  +- io.grpc:grpc-api:jar:1.24.0:compile
+[INFO] |  |  |  |  +- io.grpc:grpc-context:jar:1.24.0:compile
+[INFO] |  |  |  |  \- com.google.errorprone:error_prone_annotations:jar:2.3.2:compile
+[INFO] |  |  |  \- io.grpc:grpc-protobuf-lite:jar:1.24.0:compile
+[INFO] |  |  +- io.grpc:grpc-stub:jar:1.24.0:compile
+[INFO] |  |  +- com.google.api.grpc:proto-google-common-protos:jar:1.17.0:compile
+[INFO] |  |  +- com.google.protobuf:protobuf-java:jar:3.8.0:compile
+[INFO] |  |  \- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  +- io.netty:netty-all:jar:4.1.51.Final:compile
+[INFO] |  +- org.springframework.boot:spring-boot:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-core:jar:5.1.18.RELEASE:compile
+[INFO] |  |  |  \- org.springframework:spring-jcl:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-context:jar:5.1.18.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-beans:jar:5.1.18.RELEASE:compile
+[INFO] |  |     \- org.springframework:spring-expression:jar:5.1.18.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-web:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  |  \- org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2:compile
+[INFO] |  |  |  |     \- org.apache.logging.log4j:log4j-api:jar:2.13.3:compile
+[INFO] |  |  |  \- org.yaml:snakeyaml:jar:1.23:runtime
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-json:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.9.10:compile
+[INFO] |  |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.10:compile
+[INFO] |  |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.9.10:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.38:compile
+[INFO] |  |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:9.0.38:compile
+[INFO] |  |  +- org.hibernate.validator:hibernate-validator:jar:6.0.20.Final:compile
+[INFO] |  |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  |  +- org.jboss.logging:jboss-logging:jar:3.3.3.Final:compile
+[INFO] |  |  |  \- com.fasterxml:classmate:jar:1.4.0:compile
+[INFO] |  |  +- org.springframework:spring-web:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-webmvc:jar:5.1.18.RELEASE:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  +- org.codehaus.jackson:jackson-core-asl:jar:1.9.13:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.7:compile
+[INFO] |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  +- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  +- org.apache.mina:mina-core:jar:2.0.0-RC1:compile
+[INFO] |  +- com.google.guava:guava:jar:24.1.1-jre:compile
+[INFO] |  |  +- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  |  +- org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[INFO] |  |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] |  +- org.javatuples:javatuples:jar:1.2:compile
+[INFO] |  +- org.apache.httpcomponents:httpcore:jar:4.4.1:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.5:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.11:compile
+[INFO] |  +- mysql:mysql-connector-java:jar:8.0.16:compile
+[INFO] |  +- org.slf4j:log4j-over-slf4j:jar:1.7.30:compile
+[INFO] |  +- org.slf4j:jcl-over-slf4j:jar:1.7.30:compile
+[INFO] |  +- org.slf4j:jul-to-slf4j:jar:1.7.30:compile
+[INFO] |  +- io.micrometer:micrometer-registry-prometheus:jar:1.1.18:compile
+[INFO] |  |  +- io.micrometer:micrometer-core:jar:1.1.18:compile
+[INFO] |  |  |  +- org.hdrhistogram:HdrHistogram:jar:2.1.9:compile
+[INFO] |  |  |  \- org.latencyutils:LatencyUtils:jar:2.0.3:compile
+[INFO] |  |  \- io.prometheus:simpleclient_common:jar:0.5.0:compile
+[INFO] |  |     \- io.prometheus:simpleclient:jar:0.5.0:compile
+[INFO] |  +- io.micrometer:micrometer-registry-elastic:jar:1.1.18:compile
+[INFO] |  +- io.micrometer:micrometer-registry-influx:jar:1.1.18:compile
+[INFO] |  \- org.springframework.boot:spring-boot-starter-actuator:jar:2.1.17.RELEASE:compile
+[INFO] |     \- org.springframework.boot:spring-boot-actuator-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |        \- org.springframework.boot:spring-boot-actuator:jar:2.1.17.RELEASE:compile
+[INFO] +- org.mockito:mockito-all:jar:1.10.19:test
+[INFO] +- org.hamcrest:hamcrest-all:jar:1.3:test
+[INFO] \- org.mockito:mockito-core:jar:2.23.4:test
+[INFO]    +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO]    +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO]    \- org.objenesis:objenesis:jar:2.6:test
+[INFO] 
+[INFO] -------------------< com.alibaba.nacos:nacos-client >-------------------
+[INFO] Building nacos-client 2.0.0-BETA 2.0.0-BETA                      [12/17]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-client ---
+[INFO] com.alibaba.nacos:nacos-client:jar:2.0.0-BETA
+[INFO] +- org.slf4j:slf4j-api:jar:1.7.7:compile
+[INFO] +- org.apache.logging.log4j:log4j-core:jar:2.13.3:compile
+[INFO] +- org.apache.logging.log4j:log4j-api:jar:2.13.3:compile
+[INFO] +- org.apache.logging.log4j:log4j-slf4j-impl:jar:2.13.3:compile
+[INFO] +- com.alibaba.nacos:nacos-common:jar:2.0.0-BETA:compile
+[INFO] |  +- commons-io:commons-io:jar:2.2:compile
+[INFO] |  \- org.apache.httpcomponents:httpasyncclient:jar:4.1.3:compile
+[INFO] |     +- org.apache.httpcomponents:httpcore:jar:4.4.1:compile
+[INFO] |     +- org.apache.httpcomponents:httpcore-nio:jar:4.4.13:compile
+[INFO] |     +- org.apache.httpcomponents:httpclient:jar:4.5:compile
+[INFO] |     \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] +- com.alibaba.nacos:nacos-api:jar:2.0.0-BETA:compile
+[INFO] |  +- org.reflections:reflections:jar:0.9.11:compile
+[INFO] |  |  \- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  +- io.grpc:grpc-netty-shaded:jar:1.24.0:compile
+[INFO] |  |  \- io.grpc:grpc-core:jar:1.24.0:compile (version selected from constraint [1.24.0,1.24.0])
+[INFO] |  |     +- com.google.code.gson:gson:jar:2.8.6:compile
+[INFO] |  |     +- com.google.android:annotations:jar:4.1.1.4:compile
+[INFO] |  |     +- io.perfmark:perfmark-api:jar:0.17.0:compile
+[INFO] |  |     +- io.opencensus:opencensus-api:jar:0.21.0:compile
+[INFO] |  |     \- io.opencensus:opencensus-contrib-grpc-metrics:jar:0.21.0:compile
+[INFO] |  +- io.grpc:grpc-protobuf:jar:1.24.0:compile
+[INFO] |  |  +- io.grpc:grpc-api:jar:1.24.0:compile
+[INFO] |  |  |  +- io.grpc:grpc-context:jar:1.24.0:compile
+[INFO] |  |  |  \- com.google.errorprone:error_prone_annotations:jar:2.3.2:compile
+[INFO] |  |  \- io.grpc:grpc-protobuf-lite:jar:1.24.0:compile
+[INFO] |  +- io.grpc:grpc-stub:jar:1.24.0:compile
+[INFO] |  +- io.netty:netty-all:jar:4.1.51.Final:compile
+[INFO] |  +- com.google.api.grpc:proto-google-common-protos:jar:1.17.0:compile
+[INFO] |  +- com.google.protobuf:protobuf-java:jar:3.8.0:compile
+[INFO] |  +- io.grpc:protoc-gen-grpc-java:pom:1.24.0:compile
+[INFO] |  \- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] +- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] +- com.google.guava:guava:jar:24.1.1-jre:compile
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  +- org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[INFO] |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] +- commons-codec:commons-codec:jar:1.11:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] +- net.jcip:jcip-annotations:jar:1.0:compile
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- io.prometheus:simpleclient:jar:0.5.0:compile
+[INFO] +- org.mockito:mockito-core:jar:2.23.4:test
+[INFO] |  +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO] |  +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO] |  \- org.objenesis:objenesis:jar:2.6:test
+[INFO] \- org.yaml:snakeyaml:jar:1.23:compile
+[INFO] 
+[INFO] -------------------< com.alibaba.nacos:nacos-istio >--------------------
+[INFO] Building nacos-istio 2.0.0-BETA 2.0.0-BETA                       [13/17]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-istio ---
+[INFO] com.alibaba.nacos:nacos-istio:jar:2.0.0-BETA
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- com.alibaba.nacos:nacos-api:jar:2.0.0-BETA:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] |  +- org.reflections:reflections:jar:0.9.11:compile
+[INFO] |  |  \- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  \- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] +- com.alibaba.nacos:nacos-client:jar:2.0.0-BETA:compile
+[INFO] |  +- com.alibaba.nacos:nacos-common:jar:2.0.0-BETA:compile
+[INFO] |  +- commons-codec:commons-codec:jar:1.11:compile
+[INFO] |  +- io.prometheus:simpleclient:jar:0.5.0:compile
+[INFO] |  \- org.yaml:snakeyaml:jar:1.23:compile
+[INFO] +- com.alibaba.nacos:nacos-config:jar:2.0.0-BETA:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-web:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  \- org.springframework.boot:spring-boot-starter-logging:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |     \- org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2:compile
+[INFO] |  |  |        \- org.apache.logging.log4j:log4j-api:jar:2.13.3:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-json:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.9.10:compile
+[INFO] |  |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.10:compile
+[INFO] |  |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.9.10:compile
+[INFO] |  |  +- org.hibernate.validator:hibernate-validator:jar:6.0.20.Final:compile
+[INFO] |  |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  |  +- org.jboss.logging:jboss-logging:jar:3.3.3.Final:compile
+[INFO] |  |  |  \- com.fasterxml:classmate:jar:1.4.0:compile
+[INFO] |  |  +- org.springframework:spring-web:jar:5.1.18.RELEASE:compile
+[INFO] |  |  |  \- org.springframework:spring-beans:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-webmvc:jar:5.1.18.RELEASE:compile
+[INFO] |  |     \- org.springframework:spring-expression:jar:5.1.18.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-jdbc:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- com.zaxxer:HikariCP:jar:3.4.2:compile
+[INFO] |  |  \- org.springframework:spring-jdbc:jar:5.1.18.RELEASE:compile
+[INFO] |  |     \- org.springframework:spring-tx:jar:5.1.18.RELEASE:compile
+[INFO] |  +- commons-io:commons-io:jar:2.2:compile
+[INFO] |  +- mysql:mysql-connector-java:jar:8.0.16:compile
+[INFO] |  +- org.apache.derby:derby:jar:10.14.2.0:compile
+[INFO] |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  +- org.aspectj:aspectjrt:jar:1.9.6:compile
+[INFO] |  +- cglib:cglib-nodep:jar:2.1:compile
+[INFO] |  +- org.apache.httpcomponents:httpasyncclient:jar:4.1.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore-nio:jar:4.4.13:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.38:compile
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:9.0.38:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.4:compile
+[INFO] |  +- io.micrometer:micrometer-registry-prometheus:jar:1.1.18:compile
+[INFO] |  |  +- io.micrometer:micrometer-core:jar:1.1.18:compile
+[INFO] |  |  |  +- org.hdrhistogram:HdrHistogram:jar:2.1.9:compile
+[INFO] |  |  |  \- org.latencyutils:LatencyUtils:jar:2.0.3:compile
+[INFO] |  |  \- io.prometheus:simpleclient_common:jar:0.5.0:compile
+[INFO] |  +- io.micrometer:micrometer-registry-influx:jar:1.1.18:compile
+[INFO] |  +- io.micrometer:micrometer-registry-elastic:jar:1.1.18:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-aop:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.aspectj:aspectjweaver:jar:1.9.6:compile
+[INFO] |  \- org.springframework.boot:spring-boot-starter-actuator:jar:2.1.17.RELEASE:compile
+[INFO] |     \- org.springframework.boot:spring-boot-actuator-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |        \- org.springframework.boot:spring-boot-actuator:jar:2.1.17.RELEASE:compile
+[INFO] +- com.alibaba.nacos:nacos-naming:jar:2.0.0-BETA:compile
+[INFO] |  +- org.springframework.boot:spring-boot:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-core:jar:5.1.18.RELEASE:compile
+[INFO] |  |  |  \- org.springframework:spring-jcl:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-context:jar:5.1.18.RELEASE:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  +- org.codehaus.jackson:jackson-core-asl:jar:1.9.13:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.7:compile
+[INFO] |  +- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  +- org.apache.mina:mina-core:jar:2.0.0-RC1:compile
+[INFO] |  +- org.javatuples:javatuples:jar:1.2:compile
+[INFO] |  +- org.apache.httpcomponents:httpcore:jar:4.4.1:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.5:compile
+[INFO] |  +- org.slf4j:log4j-over-slf4j:jar:1.7.30:compile
+[INFO] |  +- org.slf4j:jcl-over-slf4j:jar:1.7.30:compile
+[INFO] |  +- org.slf4j:jul-to-slf4j:jar:1.7.30:compile
+[INFO] |  \- com.alibaba.nacos:nacos-cmdb:jar:2.0.0-BETA:compile
+[INFO] +- com.alibaba.nacos:nacos-core:jar:2.0.0-BETA:compile
+[INFO] |  +- com.alibaba.nacos:nacos-consistency:jar:2.0.0-BETA:compile
+[INFO] |  |  \- com.caucho:hessian:jar:4.0.63:compile
+[INFO] |  +- com.alibaba.nacos:nacos-auth:jar:2.0.0-BETA:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-sys:jar:2.0.0-BETA:compile
+[INFO] |  |  +- io.jsonwebtoken:jjwt-api:jar:0.11.2:compile
+[INFO] |  |  +- io.jsonwebtoken:jjwt-impl:jar:0.11.2:runtime
+[INFO] |  |  \- io.jsonwebtoken:jjwt-jackson:jar:0.11.2:runtime
+[INFO] |  +- org.springframework.boot:spring-boot-starter-security:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.security:spring-security-config:jar:5.1.12.RELEASE:compile
+[INFO] |  |  |  \- org.springframework.security:spring-security-core:jar:5.1.12.RELEASE:compile
+[INFO] |  |  \- org.springframework.security:spring-security-web:jar:5.1.12.RELEASE:compile
+[INFO] |  +- org.springframework:spring-test:jar:5.1.18.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.38:compile
+[INFO] |  |  \- org.apache.tomcat:tomcat-annotations-api:jar:9.0.38:compile
+[INFO] |  +- com.alipay.sofa:jraft-core:jar:1.3.5:compile
+[INFO] |  |  +- org.ow2.asm:asm:jar:6.0:compile
+[INFO] |  |  +- org.rocksdb:rocksdbjni:jar:5.18.4:compile
+[INFO] |  |  +- net.java.dev.jna:jna:jar:4.5.2:compile
+[INFO] |  |  +- org.jctools:jctools-core:jar:2.1.1:compile
+[INFO] |  |  +- com.lmax:disruptor:jar:3.3.7:compile
+[INFO] |  |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  |  +- com.alipay.sofa:hessian:jar:3.3.6:compile
+[INFO] |  |  \- io.dropwizard.metrics:metrics-core:jar:4.0.7:compile
+[INFO] |  \- com.alipay.sofa:rpc-grpc-impl:jar:1.3.5:compile
+[INFO] +- io.grpc:grpc-netty-shaded:jar:1.24.0:compile
+[INFO] |  \- io.grpc:grpc-core:jar:1.24.0:compile (version selected from constraint [1.24.0,1.24.0])
+[INFO] |     +- com.google.code.gson:gson:jar:2.8.6:compile
+[INFO] |     +- com.google.android:annotations:jar:4.1.1.4:compile
+[INFO] |     +- io.perfmark:perfmark-api:jar:0.17.0:compile
+[INFO] |     +- io.opencensus:opencensus-api:jar:0.21.0:compile
+[INFO] |     \- io.opencensus:opencensus-contrib-grpc-metrics:jar:0.21.0:compile
+[INFO] +- io.grpc:grpc-protobuf:jar:1.24.0:compile
+[INFO] |  +- io.grpc:grpc-api:jar:1.24.0:compile
+[INFO] |  |  +- io.grpc:grpc-context:jar:1.24.0:compile
+[INFO] |  |  \- com.google.errorprone:error_prone_annotations:jar:2.3.2:compile
+[INFO] |  \- io.grpc:grpc-protobuf-lite:jar:1.24.0:compile
+[INFO] +- io.grpc:grpc-stub:jar:1.24.0:compile
+[INFO] +- com.google.api.grpc:proto-google-common-protos:jar:1.17.0:compile
+[INFO] +- com.google.protobuf:protobuf-java:jar:3.8.0:compile
+[INFO] +- io.grpc:protoc-gen-grpc-java:pom:1.24.0:compile
+[INFO] +- com.google.guava:guava:jar:24.1.1-jre:compile
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  +- org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[INFO] |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] +- io.netty:netty-all:jar:4.1.51.Final:compile
+[INFO] \- org.mockito:mockito-core:jar:2.23.4:test
+[INFO]    +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO]    +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO]    \- org.objenesis:objenesis:jar:2.6:test
+[INFO] 
+[INFO] ------------------< com.alibaba.nacos:nacos-console >-------------------
+[INFO] Building nacos-console 2.0.0-BETA 2.0.0-BETA                     [14/17]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-console ---
+[INFO] com.alibaba.nacos:nacos-console:jar:2.0.0-BETA
+[INFO] +- com.alibaba.nacos:nacos-config:jar:2.0.0-BETA:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-web:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-json:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.9.10:compile
+[INFO] |  |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.10:compile
+[INFO] |  |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.9.10:compile
+[INFO] |  |  +- org.hibernate.validator:hibernate-validator:jar:6.0.20.Final:compile
+[INFO] |  |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  |  +- org.jboss.logging:jboss-logging:jar:3.3.3.Final:compile
+[INFO] |  |  |  \- com.fasterxml:classmate:jar:1.4.0:compile
+[INFO] |  |  +- org.springframework:spring-web:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-webmvc:jar:5.1.18.RELEASE:compile
+[INFO] |  +- com.alibaba.nacos:nacos-api:jar:2.0.0-BETA:compile
+[INFO] |  |  +- org.reflections:reflections:jar:0.9.11:compile
+[INFO] |  |  |  \- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  |  \- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  +- com.alibaba.nacos:nacos-core:jar:2.0.0-BETA:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-common:jar:2.0.0-BETA:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-consistency:jar:2.0.0-BETA:compile
+[INFO] |  |  |  \- com.caucho:hessian:jar:4.0.63:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-auth:jar:2.0.0-BETA:compile
+[INFO] |  |  |  +- com.alibaba.nacos:nacos-sys:jar:2.0.0-BETA:compile
+[INFO] |  |  |  +- io.jsonwebtoken:jjwt-api:jar:0.11.2:compile
+[INFO] |  |  |  +- io.jsonwebtoken:jjwt-impl:jar:0.11.2:runtime
+[INFO] |  |  |  \- io.jsonwebtoken:jjwt-jackson:jar:0.11.2:runtime
+[INFO] |  |  +- org.springframework:spring-test:jar:5.1.18.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-test:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- com.alipay.sofa:jraft-core:jar:1.3.5:compile
+[INFO] |  |  |  +- org.ow2.asm:asm:jar:6.0:compile
+[INFO] |  |  |  +- org.rocksdb:rocksdbjni:jar:5.18.4:compile
+[INFO] |  |  |  +- net.java.dev.jna:jna:jar:4.5.2:compile
+[INFO] |  |  |  +- org.jctools:jctools-core:jar:2.1.1:compile
+[INFO] |  |  |  +- com.lmax:disruptor:jar:3.3.7:compile
+[INFO] |  |  |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  |  |  +- com.alipay.sofa:hessian:jar:3.3.6:compile
+[INFO] |  |  |  \- io.dropwizard.metrics:metrics-core:jar:4.0.7:compile
+[INFO] |  |  \- com.alipay.sofa:rpc-grpc-impl:jar:1.3.5:compile
+[INFO] |  +- com.google.guava:guava:jar:24.1.1-jre:compile
+[INFO] |  |  +- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  |  +- org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[INFO] |  |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-jdbc:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- com.zaxxer:HikariCP:jar:3.4.2:compile
+[INFO] |  |  \- org.springframework:spring-jdbc:jar:5.1.18.RELEASE:compile
+[INFO] |  |     \- org.springframework:spring-tx:jar:5.1.18.RELEASE:compile
+[INFO] |  +- commons-io:commons-io:jar:2.2:compile
+[INFO] |  +- mysql:mysql-connector-java:jar:8.0.16:compile
+[INFO] |  +- org.apache.derby:derby:jar:10.14.2.0:compile
+[INFO] |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  +- org.aspectj:aspectjrt:jar:1.9.6:compile
+[INFO] |  +- cglib:cglib-nodep:jar:2.1:compile
+[INFO] |  +- org.apache.httpcomponents:httpasyncclient:jar:4.1.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore-nio:jar:4.4.13:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:2.1.17.RELEASE:compile
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:9.0.38:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.4:compile
+[INFO] |  +- io.micrometer:micrometer-registry-prometheus:jar:1.1.18:compile
+[INFO] |  |  +- io.micrometer:micrometer-core:jar:1.1.18:compile
+[INFO] |  |  |  +- org.hdrhistogram:HdrHistogram:jar:2.1.9:compile
+[INFO] |  |  |  \- org.latencyutils:LatencyUtils:jar:2.0.3:compile
+[INFO] |  |  \- io.prometheus:simpleclient_common:jar:0.5.0:compile
+[INFO] |  +- io.micrometer:micrometer-registry-influx:jar:1.1.18:compile
+[INFO] |  +- io.micrometer:micrometer-registry-elastic:jar:1.1.18:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.17.RELEASE:compile
+[INFO] |  |  \- org.aspectj:aspectjweaver:jar:1.9.6:compile
+[INFO] |  \- org.springframework.boot:spring-boot-starter-actuator:jar:2.1.17.RELEASE:compile
+[INFO] |     \- org.springframework.boot:spring-boot-actuator-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |        \- org.springframework.boot:spring-boot-actuator:jar:2.1.17.RELEASE:compile
+[INFO] +- org.apache.tomcat.embed:tomcat-embed-jasper:jar:9.0.37:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.38:compile
+[INFO] |  |  \- org.apache.tomcat:tomcat-annotations-api:jar:9.0.38:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.38:compile
+[INFO] |  \- org.eclipse.jdt:ecj:jar:3.18.0:compile
+[INFO] +- com.alibaba.nacos:nacos-naming:jar:2.0.0-BETA:compile
+[INFO] |  +- io.netty:netty-all:jar:4.1.51.Final:compile
+[INFO] |  +- org.springframework.boot:spring-boot:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-core:jar:5.1.18.RELEASE:compile
+[INFO] |  |  |  \- org.springframework:spring-jcl:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-context:jar:5.1.18.RELEASE:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  +- org.codehaus.jackson:jackson-core-asl:jar:1.9.13:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.7:compile
+[INFO] |  +- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  +- org.apache.mina:mina-core:jar:2.0.0-RC1:compile
+[INFO] |  +- org.javatuples:javatuples:jar:1.2:compile
+[INFO] |  +- org.apache.httpcomponents:httpcore:jar:4.4.1:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.5:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.11:compile
+[INFO] |  \- com.alibaba.nacos:nacos-cmdb:jar:2.0.0-BETA:compile
+[INFO] +- com.alibaba.nacos:nacos-istio:jar:2.0.0-BETA:compile
+[INFO] |  +- com.alibaba.nacos:nacos-client:jar:2.0.0-BETA:compile
+[INFO] |  |  +- io.prometheus:simpleclient:jar:0.5.0:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:1.23:compile
+[INFO] |  +- io.grpc:grpc-netty-shaded:jar:1.24.0:compile
+[INFO] |  |  \- io.grpc:grpc-core:jar:1.24.0:compile (version selected from constraint [1.24.0,1.24.0])
+[INFO] |  |     +- com.google.code.gson:gson:jar:2.8.6:compile
+[INFO] |  |     +- com.google.android:annotations:jar:4.1.1.4:compile
+[INFO] |  |     +- io.perfmark:perfmark-api:jar:0.17.0:compile
+[INFO] |  |     +- io.opencensus:opencensus-api:jar:0.21.0:compile
+[INFO] |  |     \- io.opencensus:opencensus-contrib-grpc-metrics:jar:0.21.0:compile
+[INFO] |  +- io.grpc:grpc-protobuf:jar:1.24.0:compile
+[INFO] |  |  +- io.grpc:grpc-api:jar:1.24.0:compile
+[INFO] |  |  |  +- io.grpc:grpc-context:jar:1.24.0:compile
+[INFO] |  |  |  \- com.google.errorprone:error_prone_annotations:jar:2.3.2:compile
+[INFO] |  |  \- io.grpc:grpc-protobuf-lite:jar:1.24.0:compile
+[INFO] |  +- io.grpc:grpc-stub:jar:1.24.0:compile
+[INFO] |  +- com.google.api.grpc:proto-google-common-protos:jar:1.17.0:compile
+[INFO] |  +- com.google.protobuf:protobuf-java:jar:3.8.0:compile
+[INFO] |  \- io.grpc:protoc-gen-grpc-java:pom:1.24.0:compile
+[INFO] +- org.slf4j:log4j-over-slf4j:jar:1.7.30:compile
+[INFO] +- org.slf4j:jcl-over-slf4j:jar:1.7.30:compile
+[INFO] +- org.slf4j:jul-to-slf4j:jar:1.7.30:compile
+[INFO] +- org.mockito:mockito-core:jar:2.23.4:test
+[INFO] |  +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO] |  +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO] |  \- org.objenesis:objenesis:jar:2.6:test
+[INFO] +- org.springframework.boot:spring-boot-starter-security:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |  |  \- org.springframework.boot:spring-boot-starter-logging:jar:2.1.17.RELEASE:compile
+[INFO] |  |     \- org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2:compile
+[INFO] |  |        \- org.apache.logging.log4j:log4j-api:jar:2.13.3:compile
+[INFO] |  +- org.springframework:spring-aop:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-beans:jar:5.1.18.RELEASE:compile
+[INFO] |  +- org.springframework.security:spring-security-config:jar:5.1.12.RELEASE:compile
+[INFO] |  |  \- org.springframework.security:spring-security-core:jar:5.1.12.RELEASE:compile
+[INFO] |  \- org.springframework.security:spring-security-web:jar:5.1.12.RELEASE:compile
+[INFO] |     \- org.springframework:spring-expression:jar:5.1.18.RELEASE:compile
+[INFO] \- junit:junit:jar:4.12:test
+[INFO]    \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] 
+[INFO] --------------------< com.alibaba.nacos:nacos-test >--------------------
+[INFO] Building nacos-test 2.0.0-BETA 2.0.0-BETA                        [15/17]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-test ---
+[INFO] com.alibaba.nacos:nacos-test:jar:2.0.0-BETA
+[INFO] +- org.slf4j:slf4j-api:jar:1.7.7:compile
+[INFO] +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] +- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] +- com.google.truth:truth:jar:0.30:compile
+[INFO] |  \- com.google.guava:guava:jar:24.1.1-jre:compile
+[INFO] |     +- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |     +- org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[INFO] |     +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |     \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] +- com.alibaba.nacos:nacos-api:jar:2.0.0-BETA:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] |  +- org.reflections:reflections:jar:0.9.11:compile
+[INFO] |  |  \- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  +- io.grpc:grpc-netty-shaded:jar:1.24.0:compile
+[INFO] |  |  \- io.grpc:grpc-core:jar:1.24.0:compile (version selected from constraint [1.24.0,1.24.0])
+[INFO] |  |     +- com.google.code.gson:gson:jar:2.8.6:compile
+[INFO] |  |     +- com.google.android:annotations:jar:4.1.1.4:compile
+[INFO] |  |     +- io.perfmark:perfmark-api:jar:0.17.0:compile
+[INFO] |  |     +- io.opencensus:opencensus-api:jar:0.21.0:compile
+[INFO] |  |     \- io.opencensus:opencensus-contrib-grpc-metrics:jar:0.21.0:compile
+[INFO] |  +- io.grpc:grpc-protobuf:jar:1.24.0:compile
+[INFO] |  |  +- io.grpc:grpc-api:jar:1.24.0:compile
+[INFO] |  |  |  +- io.grpc:grpc-context:jar:1.24.0:compile
+[INFO] |  |  |  \- com.google.errorprone:error_prone_annotations:jar:2.3.2:compile
+[INFO] |  |  \- io.grpc:grpc-protobuf-lite:jar:1.24.0:compile
+[INFO] |  +- io.grpc:grpc-stub:jar:1.24.0:compile
+[INFO] |  +- io.netty:netty-all:jar:4.1.51.Final:compile
+[INFO] |  +- com.google.api.grpc:proto-google-common-protos:jar:1.17.0:compile
+[INFO] |  +- com.google.protobuf:protobuf-java:jar:3.8.0:compile
+[INFO] |  +- io.grpc:protoc-gen-grpc-java:pom:1.24.0:compile
+[INFO] |  \- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] +- com.alibaba.nacos:nacos-client:jar:2.0.0-BETA:compile
+[INFO] |  +- com.alibaba.nacos:nacos-common:jar:2.0.0-BETA:compile
+[INFO] |  +- commons-codec:commons-codec:jar:1.11:compile
+[INFO] |  +- io.prometheus:simpleclient:jar:0.5.0:compile
+[INFO] |  \- org.yaml:snakeyaml:jar:1.23:compile
+[INFO] +- com.alibaba.nacos:nacos-config:jar:2.0.0-BETA:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-web:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  \- org.springframework.boot:spring-boot-starter-logging:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |     \- org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-json:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.9.10:compile
+[INFO] |  |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.10:compile
+[INFO] |  |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.9.10:compile
+[INFO] |  |  +- org.hibernate.validator:hibernate-validator:jar:6.0.20.Final:compile
+[INFO] |  |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  |  +- org.jboss.logging:jboss-logging:jar:3.3.3.Final:compile
+[INFO] |  |  |  \- com.fasterxml:classmate:jar:1.4.0:compile
+[INFO] |  |  +- org.springframework:spring-web:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-webmvc:jar:5.1.18.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-jdbc:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- com.zaxxer:HikariCP:jar:3.4.2:compile
+[INFO] |  |  \- org.springframework:spring-jdbc:jar:5.1.18.RELEASE:compile
+[INFO] |  |     \- org.springframework:spring-tx:jar:5.1.18.RELEASE:compile
+[INFO] |  +- commons-io:commons-io:jar:2.2:compile
+[INFO] |  +- mysql:mysql-connector-java:jar:8.0.16:compile
+[INFO] |  +- org.apache.derby:derby:jar:10.14.2.0:compile
+[INFO] |  +- org.aspectj:aspectjrt:jar:1.9.6:compile
+[INFO] |  +- cglib:cglib-nodep:jar:2.1:compile
+[INFO] |  +- org.apache.httpcomponents:httpasyncclient:jar:4.1.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore-nio:jar:4.4.13:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.38:compile
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:9.0.38:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.4:compile
+[INFO] |  +- io.micrometer:micrometer-registry-prometheus:jar:1.1.18:compile
+[INFO] |  |  +- io.micrometer:micrometer-core:jar:1.1.18:compile
+[INFO] |  |  |  +- org.hdrhistogram:HdrHistogram:jar:2.1.9:compile
+[INFO] |  |  |  \- org.latencyutils:LatencyUtils:jar:2.0.3:compile
+[INFO] |  |  \- io.prometheus:simpleclient_common:jar:0.5.0:compile
+[INFO] |  +- io.micrometer:micrometer-registry-influx:jar:1.1.18:compile
+[INFO] |  +- io.micrometer:micrometer-registry-elastic:jar:1.1.18:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-aop:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.aspectj:aspectjweaver:jar:1.9.6:compile
+[INFO] |  \- org.springframework.boot:spring-boot-starter-actuator:jar:2.1.17.RELEASE:compile
+[INFO] |     \- org.springframework.boot:spring-boot-actuator-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |        \- org.springframework.boot:spring-boot-actuator:jar:2.1.17.RELEASE:compile
+[INFO] +- com.alibaba.nacos:nacos-naming:jar:2.0.0-BETA:compile
+[INFO] |  +- org.springframework.boot:spring-boot:jar:2.1.17.RELEASE:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  +- org.codehaus.jackson:jackson-core-asl:jar:1.9.13:compile
+[INFO] |  +- org.apache.mina:mina-core:jar:2.0.0-RC1:compile
+[INFO] |  +- org.javatuples:javatuples:jar:1.2:compile
+[INFO] |  +- org.apache.httpcomponents:httpcore:jar:4.4.1:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.5:compile
+[INFO] |  +- org.slf4j:log4j-over-slf4j:jar:1.7.30:compile
+[INFO] |  +- org.slf4j:jcl-over-slf4j:jar:1.7.30:compile
+[INFO] |  +- org.slf4j:jul-to-slf4j:jar:1.7.30:compile
+[INFO] |  \- com.alibaba.nacos:nacos-cmdb:jar:2.0.0-BETA:compile
+[INFO] +- com.alibaba.nacos:nacos-core:jar:2.0.0-BETA:compile
+[INFO] |  +- com.alibaba.nacos:nacos-consistency:jar:2.0.0-BETA:compile
+[INFO] |  |  \- com.caucho:hessian:jar:4.0.63:compile
+[INFO] |  +- com.alibaba.nacos:nacos-auth:jar:2.0.0-BETA:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-sys:jar:2.0.0-BETA:compile
+[INFO] |  |  +- io.jsonwebtoken:jjwt-api:jar:0.11.2:compile
+[INFO] |  |  +- io.jsonwebtoken:jjwt-impl:jar:0.11.2:runtime
+[INFO] |  |  \- io.jsonwebtoken:jjwt-jackson:jar:0.11.2:runtime
+[INFO] |  +- org.springframework.boot:spring-boot-starter-security:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.security:spring-security-config:jar:5.1.12.RELEASE:compile
+[INFO] |  |  |  \- org.springframework.security:spring-security-core:jar:5.1.12.RELEASE:compile
+[INFO] |  |  \- org.springframework.security:spring-security-web:jar:5.1.12.RELEASE:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.38:compile
+[INFO] |  |  \- org.apache.tomcat:tomcat-annotations-api:jar:9.0.38:compile
+[INFO] |  +- com.alipay.sofa:jraft-core:jar:1.3.5:compile
+[INFO] |  |  +- org.ow2.asm:asm:jar:6.0:compile
+[INFO] |  |  +- org.rocksdb:rocksdbjni:jar:5.18.4:compile
+[INFO] |  |  +- net.java.dev.jna:jna:jar:4.5.2:compile
+[INFO] |  |  +- org.jctools:jctools-core:jar:2.1.1:compile
+[INFO] |  |  +- com.alipay.sofa:hessian:jar:3.3.6:compile
+[INFO] |  |  \- io.dropwizard.metrics:metrics-core:jar:4.0.7:compile
+[INFO] |  \- com.alipay.sofa:rpc-grpc-impl:jar:1.3.5:compile
+[INFO] +- com.alibaba.nacos:nacos-console:jar:2.0.0-BETA:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-jasper:jar:9.0.37:compile
+[INFO] |  |  \- org.eclipse.jdt:ecj:jar:3.18.0:compile
+[INFO] |  \- com.alibaba.nacos:nacos-istio:jar:2.0.0-BETA:compile
+[INFO] +- com.alibaba.nacos:nacos-address:jar:2.0.0-BETA:compile
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- org.springframework:spring-test:jar:5.1.18.RELEASE:test
+[INFO] |  \- org.springframework:spring-core:jar:5.1.18.RELEASE:compile
+[INFO] |     \- org.springframework:spring-jcl:jar:5.1.18.RELEASE:compile
+[INFO] +- org.springframework.boot:spring-boot-test:jar:2.1.17.RELEASE:test
+[INFO] +- org.mockito:mockito-core:jar:2.23.4:test
+[INFO] |  +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO] |  +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO] |  \- org.objenesis:objenesis:jar:2.6:test
+[INFO] \- com.github.keran213539:commonOkHttp:jar:0.4.1:test
+[INFO]    +- org.apache.logging.log4j:log4j-slf4j-impl:jar:2.13.3:test
+[INFO]    |  +- org.apache.logging.log4j:log4j-api:jar:2.13.3:compile
+[INFO]    |  \- org.apache.logging.log4j:log4j-core:jar:2.13.3:test
+[INFO]    +- com.lmax:disruptor:jar:3.4.1:compile
+[INFO]    +- org.springframework:spring-context:jar:5.1.18.RELEASE:compile
+[INFO]    |  +- org.springframework:spring-beans:jar:5.1.18.RELEASE:compile
+[INFO]    |  \- org.springframework:spring-expression:jar:5.1.18.RELEASE:compile
+[INFO]    +- commons-lang:commons-lang:jar:2.6:compile
+[INFO]    \- com.squareup.okhttp3:okhttp:jar:3.14.1:test
+[INFO]       \- com.squareup.okio:okio:jar:1.17.2:test
+[INFO] 
+[INFO] ------------------< com.alibaba.nacos:nacos-example >-------------------
+[INFO] Building nacos-example 2.0.0-BETA 2.0.0-BETA                     [16/17]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-example ---
+[INFO] com.alibaba.nacos:nacos-example:jar:2.0.0-BETA
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- com.alibaba.nacos:nacos-common:jar:2.0.0-BETA:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.7:compile
+[INFO] |  +- commons-io:commons-io:jar:2.2:compile
+[INFO] |  +- org.apache.httpcomponents:httpasyncclient:jar:4.1.3:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.4.1:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore-nio:jar:4.4.13:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.5:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  +- com.alibaba.nacos:nacos-api:jar:2.0.0-BETA:compile
+[INFO] |  |  +- io.grpc:grpc-netty-shaded:jar:1.24.0:compile
+[INFO] |  |  |  \- io.grpc:grpc-core:jar:1.24.0:compile (version selected from constraint [1.24.0,1.24.0])
+[INFO] |  |  |     +- com.google.code.gson:gson:jar:2.8.6:compile
+[INFO] |  |  |     +- com.google.android:annotations:jar:4.1.1.4:compile
+[INFO] |  |  |     +- io.perfmark:perfmark-api:jar:0.17.0:compile
+[INFO] |  |  |     +- io.opencensus:opencensus-api:jar:0.21.0:compile
+[INFO] |  |  |     \- io.opencensus:opencensus-contrib-grpc-metrics:jar:0.21.0:compile
+[INFO] |  |  +- io.grpc:grpc-protobuf:jar:1.24.0:compile
+[INFO] |  |  |  +- io.grpc:grpc-api:jar:1.24.0:compile
+[INFO] |  |  |  |  +- io.grpc:grpc-context:jar:1.24.0:compile
+[INFO] |  |  |  |  \- com.google.errorprone:error_prone_annotations:jar:2.3.2:compile
+[INFO] |  |  |  \- io.grpc:grpc-protobuf-lite:jar:1.24.0:compile
+[INFO] |  |  +- io.grpc:grpc-stub:jar:1.24.0:compile
+[INFO] |  |  +- io.netty:netty-all:jar:4.1.51.Final:compile
+[INFO] |  |  +- com.google.api.grpc:proto-google-common-protos:jar:1.17.0:compile
+[INFO] |  |  +- com.google.protobuf:protobuf-java:jar:3.8.0:compile
+[INFO] |  |  \- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+[INFO] |     \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] +- com.alibaba.nacos:nacos-core:jar:2.0.0-BETA:compile
+[INFO] |  +- com.alibaba.nacos:nacos-consistency:jar:2.0.0-BETA:compile
+[INFO] |  |  \- com.caucho:hessian:jar:4.0.63:compile
+[INFO] |  +- com.alibaba.nacos:nacos-auth:jar:2.0.0-BETA:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-sys:jar:2.0.0-BETA:compile
+[INFO] |  |  +- io.jsonwebtoken:jjwt-api:jar:0.11.2:compile
+[INFO] |  |  +- io.jsonwebtoken:jjwt-impl:jar:0.11.2:runtime
+[INFO] |  |  \- io.jsonwebtoken:jjwt-jackson:jar:0.11.2:runtime
+[INFO] |  +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  \- org.springframework.boot:spring-boot-starter-logging:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |     +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2:compile
+[INFO] |  |  |     |  \- org.apache.logging.log4j:log4j-api:jar:2.13.3:compile
+[INFO] |  |  |     \- org.slf4j:jul-to-slf4j:jar:1.7.30:compile
+[INFO] |  |  +- org.springframework:spring-aop:jar:5.1.18.RELEASE:compile
+[INFO] |  |  |  \- org.springframework:spring-beans:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.aspectj:aspectjweaver:jar:1.9.6:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-security:jar:2.1.17.RELEASE:compile
+[INFO] |  |  +- org.springframework.security:spring-security-config:jar:5.1.12.RELEASE:compile
+[INFO] |  |  |  +- org.springframework.security:spring-security-core:jar:5.1.12.RELEASE:compile
+[INFO] |  |  |  \- org.springframework:spring-context:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework.security:spring-security-web:jar:5.1.12.RELEASE:compile
+[INFO] |  |     +- org.springframework:spring-expression:jar:5.1.18.RELEASE:compile
+[INFO] |  |     \- org.springframework:spring-web:jar:5.1.18.RELEASE:compile
+[INFO] |  +- org.javatuples:javatuples:jar:1.2:compile
+[INFO] |  +- org.springframework:spring-test:jar:5.1.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-core:jar:5.1.18.RELEASE:compile
+[INFO] |  |     \- org.springframework:spring-jcl:jar:5.1.18.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:2.1.17.RELEASE:compile
+[INFO] |  |  \- org.springframework.boot:spring-boot:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.38:compile
+[INFO] |  |  \- org.apache.tomcat:tomcat-annotations-api:jar:9.0.38:compile
+[INFO] |  +- com.alipay.sofa:jraft-core:jar:1.3.5:compile
+[INFO] |  |  +- org.ow2.asm:asm:jar:6.0:compile
+[INFO] |  |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |  |  +- org.rocksdb:rocksdbjni:jar:5.18.4:compile
+[INFO] |  |  +- net.java.dev.jna:jna:jar:4.5.2:compile
+[INFO] |  |  +- org.jctools:jctools-core:jar:2.1.1:compile
+[INFO] |  |  +- com.lmax:disruptor:jar:3.3.7:compile
+[INFO] |  |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  |  +- com.alipay.sofa:hessian:jar:3.3.6:compile
+[INFO] |  |  \- io.dropwizard.metrics:metrics-core:jar:4.0.7:compile
+[INFO] |  +- com.alipay.sofa:rpc-grpc-impl:jar:1.3.5:compile
+[INFO] |  +- org.aspectj:aspectjrt:jar:1.9.6:compile
+[INFO] |  +- cglib:cglib-nodep:jar:2.1:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  +- org.reflections:reflections:jar:0.9.11:compile
+[INFO] |  |  \- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  +- io.micrometer:micrometer-registry-prometheus:jar:1.1.18:compile
+[INFO] |  |  +- io.micrometer:micrometer-core:jar:1.1.18:compile
+[INFO] |  |  |  +- org.hdrhistogram:HdrHistogram:jar:2.1.9:compile
+[INFO] |  |  |  \- org.latencyutils:LatencyUtils:jar:2.0.3:compile
+[INFO] |  |  \- io.prometheus:simpleclient_common:jar:0.5.0:compile
+[INFO] |  +- io.micrometer:micrometer-registry-influx:jar:1.1.18:compile
+[INFO] |  +- io.micrometer:micrometer-registry-elastic:jar:1.1.18:compile
+[INFO] |  +- io.grpc:protoc-gen-grpc-java:pom:1.24.0:compile
+[INFO] |  \- org.apache.commons:commons-lang3:jar:3.4:compile
+[INFO] +- com.alibaba.nacos:nacos-client:jar:2.0.0-BETA:compile
+[INFO] |  +- com.google.guava:guava:jar:24.1.1-jre:compile
+[INFO] |  |  +- org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[INFO] |  |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] |  +- commons-codec:commons-codec:jar:1.11:compile
+[INFO] |  +- io.prometheus:simpleclient:jar:0.5.0:compile
+[INFO] |  \- org.yaml:snakeyaml:jar:1.23:compile
+[INFO] +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  \- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] \- org.mockito:mockito-core:jar:2.23.4:test
+[INFO]    +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO]    +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO]    \- org.objenesis:objenesis:jar:2.6:test
+[INFO] 
+[INFO] ----------------< com.alibaba.nacos:nacos-distribution >----------------
+[INFO] Building nacos-distribution 2.0.0-BETA 2.0.0-BETA                [17/17]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ nacos-distribution ---
+[INFO] com.alibaba.nacos:nacos-distribution:pom:2.0.0-BETA
+[INFO] +- com.alibaba.nacos:nacos-console:jar:2.0.0-BETA:compile
+[INFO] |  +- com.alibaba.nacos:nacos-config:jar:2.0.0-BETA:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-web:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- org.springframework.boot:spring-boot-starter-json:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.9.10:compile
+[INFO] |  |  |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.10:compile
+[INFO] |  |  |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.9.10:compile
+[INFO] |  |  |  +- org.hibernate.validator:hibernate-validator:jar:6.0.20.Final:compile
+[INFO] |  |  |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  |  |  +- org.jboss.logging:jboss-logging:jar:3.3.3.Final:compile
+[INFO] |  |  |  |  \- com.fasterxml:classmate:jar:1.4.0:compile
+[INFO] |  |  |  +- org.springframework:spring-web:jar:5.1.18.RELEASE:compile
+[INFO] |  |  |  \- org.springframework:spring-webmvc:jar:5.1.18.RELEASE:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-api:jar:2.0.0-BETA:compile
+[INFO] |  |  |  +- org.reflections:reflections:jar:0.9.11:compile
+[INFO] |  |  |  |  \- org.javassist:javassist:jar:3.21.0-GA:compile
+[INFO] |  |  |  \- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-core:jar:2.0.0-BETA:compile
+[INFO] |  |  |  +- com.alibaba.nacos:nacos-common:jar:2.0.0-BETA:compile
+[INFO] |  |  |  +- com.alibaba.nacos:nacos-consistency:jar:2.0.0-BETA:compile
+[INFO] |  |  |  |  \- com.caucho:hessian:jar:4.0.63:compile
+[INFO] |  |  |  +- com.alibaba.nacos:nacos-auth:jar:2.0.0-BETA:compile
+[INFO] |  |  |  |  +- com.alibaba.nacos:nacos-sys:jar:2.0.0-BETA:compile
+[INFO] |  |  |  |  +- io.jsonwebtoken:jjwt-api:jar:0.11.2:compile
+[INFO] |  |  |  |  +- io.jsonwebtoken:jjwt-impl:jar:0.11.2:runtime
+[INFO] |  |  |  |  \- io.jsonwebtoken:jjwt-jackson:jar:0.11.2:runtime
+[INFO] |  |  |  +- org.springframework:spring-test:jar:5.1.18.RELEASE:compile
+[INFO] |  |  |  +- org.springframework.boot:spring-boot-test:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- com.alipay.sofa:jraft-core:jar:1.3.5:compile
+[INFO] |  |  |  |  +- org.ow2.asm:asm:jar:6.0:compile
+[INFO] |  |  |  |  +- org.rocksdb:rocksdbjni:jar:5.18.4:compile
+[INFO] |  |  |  |  +- net.java.dev.jna:jna:jar:4.5.2:compile
+[INFO] |  |  |  |  +- org.jctools:jctools-core:jar:2.1.1:compile
+[INFO] |  |  |  |  +- com.lmax:disruptor:jar:3.3.7:compile
+[INFO] |  |  |  |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  |  |  |  +- com.alipay.sofa:hessian:jar:3.3.6:compile
+[INFO] |  |  |  |  \- io.dropwizard.metrics:metrics-core:jar:4.0.7:compile
+[INFO] |  |  |  \- com.alipay.sofa:rpc-grpc-impl:jar:1.3.5:compile
+[INFO] |  |  +- com.google.guava:guava:jar:24.1.1-jre:compile
+[INFO] |  |  |  +- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  |  |  +- org.checkerframework:checker-compat-qual:jar:2.0.0:compile
+[INFO] |  |  |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  |  |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-jdbc:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- com.zaxxer:HikariCP:jar:3.4.2:compile
+[INFO] |  |  |  \- org.springframework:spring-jdbc:jar:5.1.18.RELEASE:compile
+[INFO] |  |  |     \- org.springframework:spring-tx:jar:5.1.18.RELEASE:compile
+[INFO] |  |  +- commons-io:commons-io:jar:2.2:compile
+[INFO] |  |  +- mysql:mysql-connector-java:jar:8.0.16:compile
+[INFO] |  |  +- org.apache.derby:derby:jar:10.14.2.0:compile
+[INFO] |  |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  |  +- org.aspectj:aspectjrt:jar:1.9.6:compile
+[INFO] |  |  +- cglib:cglib-nodep:jar:2.1:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpasyncclient:jar:4.1.3:compile
+[INFO] |  |  |  +- org.apache.httpcomponents:httpcore-nio:jar:4.4.13:compile
+[INFO] |  |  |  \- commons-logging:commons-logging:jar:1.2:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:9.0.38:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+[INFO] |  |  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.4:compile
+[INFO] |  |  +- io.micrometer:micrometer-registry-prometheus:jar:1.1.18:compile
+[INFO] |  |  |  +- io.micrometer:micrometer-core:jar:1.1.18:compile
+[INFO] |  |  |  |  +- org.hdrhistogram:HdrHistogram:jar:2.1.9:compile
+[INFO] |  |  |  |  \- org.latencyutils:LatencyUtils:jar:2.0.3:compile
+[INFO] |  |  |  \- io.prometheus:simpleclient_common:jar:0.5.0:compile
+[INFO] |  |  +- io.micrometer:micrometer-registry-influx:jar:1.1.18:compile
+[INFO] |  |  +- io.micrometer:micrometer-registry-elastic:jar:1.1.18:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  \- org.aspectj:aspectjweaver:jar:1.9.6:compile
+[INFO] |  |  \- org.springframework.boot:spring-boot-starter-actuator:jar:2.1.17.RELEASE:compile
+[INFO] |  |     \- org.springframework.boot:spring-boot-actuator-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |  |        \- org.springframework.boot:spring-boot-actuator:jar:2.1.17.RELEASE:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-jasper:jar:9.0.37:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.38:compile
+[INFO] |  |  |  \- org.apache.tomcat:tomcat-annotations-api:jar:9.0.38:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.38:compile
+[INFO] |  |  \- org.eclipse.jdt:ecj:jar:3.18.0:compile
+[INFO] |  +- com.alibaba.nacos:nacos-naming:jar:2.0.0-BETA:compile
+[INFO] |  |  +- io.netty:netty-all:jar:4.1.51.Final:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot:jar:2.1.17.RELEASE:compile
+[INFO] |  |  |  +- org.springframework:spring-core:jar:5.1.18.RELEASE:compile
+[INFO] |  |  |  |  \- org.springframework:spring-jcl:jar:5.1.18.RELEASE:compile
+[INFO] |  |  |  \- org.springframework:spring-context:jar:5.1.18.RELEASE:compile
+[INFO] |  |  +- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  |  +- org.codehaus.jackson:jackson-core-asl:jar:1.9.13:compile
+[INFO] |  |  +- org.slf4j:slf4j-api:jar:1.7.7:compile
+[INFO] |  |  +- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  |  +- org.apache.mina:mina-core:jar:2.0.0-RC1:compile
+[INFO] |  |  +- org.javatuples:javatuples:jar:1.2:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpcore:jar:4.4.1:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.5:compile
+[INFO] |  |  |  \- commons-codec:commons-codec:jar:1.11:compile
+[INFO] |  |  \- com.alibaba.nacos:nacos-cmdb:jar:2.0.0-BETA:compile
+[INFO] |  +- com.alibaba.nacos:nacos-istio:jar:2.0.0-BETA:compile
+[INFO] |  |  +- com.alibaba.nacos:nacos-client:jar:2.0.0-BETA:compile
+[INFO] |  |  |  +- io.prometheus:simpleclient:jar:0.5.0:compile
+[INFO] |  |  |  \- org.yaml:snakeyaml:jar:1.23:compile
+[INFO] |  |  +- io.grpc:grpc-netty-shaded:jar:1.24.0:compile
+[INFO] |  |  |  \- io.grpc:grpc-core:jar:1.24.0:compile (version selected from constraint [1.24.0,1.24.0])
+[INFO] |  |  |     +- com.google.code.gson:gson:jar:2.8.6:compile
+[INFO] |  |  |     +- com.google.android:annotations:jar:4.1.1.4:compile
+[INFO] |  |  |     +- io.perfmark:perfmark-api:jar:0.17.0:compile
+[INFO] |  |  |     +- io.opencensus:opencensus-api:jar:0.21.0:compile
+[INFO] |  |  |     \- io.opencensus:opencensus-contrib-grpc-metrics:jar:0.21.0:compile
+[INFO] |  |  +- io.grpc:grpc-protobuf:jar:1.24.0:compile
+[INFO] |  |  |  +- io.grpc:grpc-api:jar:1.24.0:compile
+[INFO] |  |  |  |  +- io.grpc:grpc-context:jar:1.24.0:compile
+[INFO] |  |  |  |  \- com.google.errorprone:error_prone_annotations:jar:2.3.2:compile
+[INFO] |  |  |  \- io.grpc:grpc-protobuf-lite:jar:1.24.0:compile
+[INFO] |  |  +- io.grpc:grpc-stub:jar:1.24.0:compile
+[INFO] |  |  +- com.google.api.grpc:proto-google-common-protos:jar:1.17.0:compile
+[INFO] |  |  +- com.google.protobuf:protobuf-java:jar:3.8.0:compile
+[INFO] |  |  \- io.grpc:protoc-gen-grpc-java:pom:1.24.0:compile
+[INFO] |  +- org.slf4j:log4j-over-slf4j:jar:1.7.30:compile
+[INFO] |  +- org.slf4j:jcl-over-slf4j:jar:1.7.30:compile
+[INFO] |  +- org.slf4j:jul-to-slf4j:jar:1.7.30:compile
+[INFO] |  \- org.springframework.boot:spring-boot-starter-security:jar:2.1.17.RELEASE:compile
+[INFO] |     +- org.springframework.boot:spring-boot-starter:jar:2.1.17.RELEASE:compile
+[INFO] |     |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.1.17.RELEASE:compile
+[INFO] |     |  \- org.springframework.boot:spring-boot-starter-logging:jar:2.1.17.RELEASE:compile
+[INFO] |     |     \- org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2:compile
+[INFO] |     |        \- org.apache.logging.log4j:log4j-api:jar:2.13.3:compile
+[INFO] |     +- org.springframework:spring-aop:jar:5.1.18.RELEASE:compile
+[INFO] |     |  \- org.springframework:spring-beans:jar:5.1.18.RELEASE:compile
+[INFO] |     +- org.springframework.security:spring-security-config:jar:5.1.12.RELEASE:compile
+[INFO] |     |  \- org.springframework.security:spring-security-core:jar:5.1.12.RELEASE:compile
+[INFO] |     \- org.springframework.security:spring-security-web:jar:5.1.12.RELEASE:compile
+[INFO] |        \- org.springframework:spring-expression:jar:5.1.18.RELEASE:compile
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] \- org.mockito:mockito-core:jar:2.23.4:test
+[INFO]    +- net.bytebuddy:byte-buddy:jar:1.9.16:test
+[INFO]    +- net.bytebuddy:byte-buddy-agent:jar:1.9.16:test
+[INFO]    \- org.objenesis:objenesis:jar:2.6:test
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Alibaba NACOS 2.0.0-BETA 2.0.0-BETA:
+[INFO] 
+[INFO] Alibaba NACOS 2.0.0-BETA ........................... SUCCESS [  0.791 s]
+[INFO] nacos-api 2.0.0-BETA ............................... SUCCESS [01:05 min]
+[INFO] nacos-common 2.0.0-BETA ............................ SUCCESS [  0.092 s]
+[INFO] nacos-consistency 2.0.0-BETA ....................... SUCCESS [  0.200 s]
+[INFO] nacos-sys 2.0.0-BETA ............................... SUCCESS [  0.211 s]
+[INFO] nacos-auth 2.0.0-BETA .............................. SUCCESS [  0.062 s]
+[INFO] nacos-core 2.0.0-BETA .............................. SUCCESS [  0.160 s]
+[INFO] nacos-config 2.0.0-BETA ............................ SUCCESS [  0.212 s]
+[INFO] nacos-cmdb 2.0.0-BETA .............................. SUCCESS [  0.096 s]
+[INFO] nacos-naming 2.0.0-BETA ............................ SUCCESS [  0.127 s]
+[INFO] nacos-address 2.0.0-BETA ........................... SUCCESS [  0.085 s]
+[INFO] nacos-client 2.0.0-BETA ............................ SUCCESS [  0.039 s]
+[INFO] nacos-istio 2.0.0-BETA ............................. SUCCESS [  0.075 s]
+[INFO] nacos-console 2.0.0-BETA ........................... SUCCESS [  0.079 s]
+[INFO] nacos-test 2.0.0-BETA .............................. SUCCESS [  0.109 s]
+[INFO] nacos-example 2.0.0-BETA ........................... SUCCESS [  0.053 s]
+[INFO] nacos-distribution 2.0.0-BETA ...................... SUCCESS [  0.068 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:09 min
+[INFO] Finished at: 2021-03-17T11:14:11+08:00
+[INFO] ------------------------------------------------------------------------
