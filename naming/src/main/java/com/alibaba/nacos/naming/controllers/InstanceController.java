@@ -104,14 +104,14 @@ public class InstanceController {
     @PostMapping
     @Secured(parser = NamingResourceParser.class, action = ActionTypes.WRITE)
     public String register(HttpServletRequest request) throws Exception {
-        
+        //获取请求中的关键信息
         final String namespaceId = WebUtils
                 .optional(request, CommonParams.NAMESPACE_ID, Constants.DEFAULT_NAMESPACE_ID);
         final String serviceName = WebUtils.required(request, CommonParams.SERVICE_NAME);
         NamingUtils.checkServiceNameFormat(serviceName);
         
         final Instance instance = parseInstance(request);
-    
+        //默认使用 InstanceOperatorServiceImpl instanceServiceV1
         getInstanceOperator().registerInstance(namespaceId, serviceName, instance);
         return "ok";
     }
@@ -464,7 +464,7 @@ public class InstanceController {
     }
     
     private Instance parseInstance(HttpServletRequest request) throws Exception {
-        
+        //  从请求中组装Instance
         String serviceName = WebUtils.required(request, CommonParams.SERVICE_NAME);
         String app = WebUtils.optional(request, "app", "DEFAULT");
         Instance instance = getIpAddress(request);
@@ -473,6 +473,7 @@ public class InstanceController {
         // Generate simple instance id first. This value would be updated according to
         // INSTANCE_ID_GENERATOR.
         instance.setInstanceId(instance.generateInstanceId());
+        //设置当前时间为最后实例最后一次心跳
         instance.setLastBeat(System.currentTimeMillis());
         String metadata = WebUtils.optional(request, "metadata", StringUtils.EMPTY);
         if (StringUtils.isNotEmpty(metadata)) {
@@ -526,6 +527,7 @@ public class InstanceController {
     }
     
     private InstanceOperator getInstanceOperator() {
+        //默认不使用grpc 返回的是v1
         return upgradeJudgement.isUseGrpcFeatures() ? instanceServiceV2 : instanceServiceV1;
     }
 }

@@ -322,6 +322,7 @@ public class Instance extends com.alibaba.nacos.api.naming.pojo.Instance impleme
         this.tenant = tenant;
     }
     
+    //简单instanceId生成 ip#port#name#serviceName
     public String generateInstanceId() {
         return getIp() + "#" + getPort() + "#" + getClusterName() + "#" + getServiceName();
     }
@@ -337,6 +338,7 @@ public class Instance extends com.alibaba.nacos.api.naming.pojo.Instance impleme
         if (Constants.SNOWFLAKE_INSTANCE_ID_GENERATOR.equalsIgnoreCase(instanceIdGenerator)) {
             return generateSnowflakeInstanceId(currentInstanceIds);
         } else {
+            //默认使用简单instanceId生成器
             return generateInstanceId();
         }
     }

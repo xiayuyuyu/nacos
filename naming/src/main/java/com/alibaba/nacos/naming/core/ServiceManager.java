@@ -83,6 +83,7 @@ public class ServiceManager implements RecordListener<Service> {
     
     /**
      * Map(namespace, Map(group::serviceName, Service)).
+     * serviceMap放所有service信息,key 为nameSpaceId
      */
     private final Map<String, Map<String, Service>> serviceMap = new ConcurrentHashMap<>();
     
@@ -93,6 +94,7 @@ public class ServiceManager implements RecordListener<Service> {
     private final Lock lock = new ReentrantLock();
     
     @Resource(name = "consistencyDelegate")
+    //DelegateConsistencyServiceImpl
     private ConsistencyService consistencyService;
     
     private final SwitchDomain switchDomain;
@@ -483,7 +485,7 @@ public class ServiceManager implements RecordListener<Service> {
             service.validate();
             
             putServiceAndInit(service);
-            if (!local) {
+            if (!local) {//默认local是true
                 addOrReplaceService(service);
             }
         }
@@ -500,7 +502,9 @@ public class ServiceManager implements RecordListener<Service> {
      * @throws Exception any error occurred in the process
      */
     public void registerInstance(String namespaceId, String serviceName, Instance instance) throws NacosException {
-        
+        //默认创建的是临时实例
+        //开始先创建空的service
+        //serviceMap 里  nameSpaceId对应一个service,一个service 下有多个Instance
         createEmptyService(namespaceId, serviceName, instance.isEphemeral());
         
         Service service = getService(namespaceId, serviceName);
@@ -781,13 +785,15 @@ public class ServiceManager implements RecordListener<Service> {
         
         Datum datum = consistencyService
                 .get(KeyBuilder.buildInstanceListKey(service.getNamespaceId(), service.getName(), ephemeral));
-        
+        //当前service下所有临时的instance
         List<Instance> currentIPs = service.allIPs(ephemeral);
         Map<String, Instance> currentInstances = new HashMap<>(currentIPs.size());
         Set<String> currentInstanceIds = Sets.newHashSet();
         
         for (Instance instance : currentIPs) {
+            //ip:port 暂存当前instance
             currentInstances.put(instance.toIpAddr(), instance);
+            //暂存当前instanceId
             currentInstanceIds.add(instance.getInstanceId());
         }
         
@@ -843,6 +849,7 @@ public class ServiceManager implements RecordListener<Service> {
     private Map<String, Instance> setValid(List<Instance> oldInstances, Map<String, Instance> map) {
         
         Map<String, Instance> instanceMap = new HashMap<>(oldInstances.size());
+        //循环并更新老的instance里的信息
         for (Instance instance : oldInstances) {
             Instance instance1 = map.get(instance.toIpAddr());
             if (instance1 != null) {
@@ -874,10 +881,12 @@ public class ServiceManager implements RecordListener<Service> {
         if (!serviceMap.containsKey(service.getNamespaceId())) {
             synchronized (putServiceLock) {
                 if (!serviceMap.containsKey(service.getNamespaceId())) {
+                    //不存在命名空间则新建 ConcurrentSkipListMap
                     serviceMap.put(service.getNamespaceId(), new ConcurrentSkipListMap<>());
                 }
             }
         }
+        //如果命名空间存在,serviceName不存在,则直接插入该service
         serviceMap.get(service.getNamespaceId()).putIfAbsent(service.getName(), service);
     }
     
