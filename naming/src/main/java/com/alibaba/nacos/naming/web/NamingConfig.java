@@ -22,7 +22,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Naming spring configuration.
- *
+ *  配置各种过滤器
  * @author nkorange
  */
 @Configuration

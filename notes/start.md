@@ -114,6 +114,11 @@ curl -X GET "http://127.0.0.1:8848/nacos/v1/cs/configs?dataId=nacos.cfg.dataId&g
 
 猜想服务注册应该是调用nacos-server 提供的接口来进行注册,并且将信息放入server的注册表中去
 
+直接看/v1/ns/instance匹配的controller 得知com.alibaba.nacos.naming.controllers.InstanceController.register 
+为服务注册的具体方法,继续寻找蛛丝马迹得知nacos 储存instance信息是在serviceManger中的    
+``` private final Map<String, Map<String, Service>> serviceMap = new ConcurrentHashMap<>(); ```
+
+接下来就可以大体看一遍serviceManger的初始化,然后顺流而下去看注册相关的东西了
 
 
 

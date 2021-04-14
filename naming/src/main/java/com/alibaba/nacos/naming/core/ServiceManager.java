@@ -128,6 +128,7 @@ public class ServiceManager implements RecordListener<Service> {
     }
     
     /**
+     *
      * Init service maneger.
      */
     @PostConstruct
@@ -478,6 +479,7 @@ public class ServiceManager implements RecordListener<Service> {
             // now validate the service. if failed, exception will be thrown
             service.setLastModifiedMillis(System.currentTimeMillis());
             service.recalculateChecksum();
+            //首次进入cluster=null
             if (cluster != null) {
                 cluster.setService(service);
                 service.getClusterMap().put(cluster.getName(), cluster);
@@ -654,6 +656,7 @@ public class ServiceManager implements RecordListener<Service> {
         Service service = getService(namespaceId, serviceName);
         
         synchronized (service) {
+            //封装instanceList
             List<Instance> instanceList = addIpAddresses(service, ephemeral, ips);
             
             Instances instances = new Instances();
@@ -805,9 +808,11 @@ public class ServiceManager implements RecordListener<Service> {
         }
         
         for (Instance instance : ips) {
+            //
             if (!service.getClusterMap().containsKey(instance.getClusterName())) {
                 Cluster cluster = new Cluster(instance.getClusterName(), service);
                 cluster.init();
+                
                 service.getClusterMap().put(instance.getClusterName(), cluster);
                 Loggers.SRV_LOG
                         .warn("cluster: {} not found, ip: {}, will create new cluster with default configuration.",
